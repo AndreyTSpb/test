@@ -252,15 +252,13 @@ abstract class Mysql {
          * Проверка есть ли в данной таблице поле ID 
          */
         $arrayAllField = array_keys($this->fieldsTable()); // масив с полями таблицы
-        print_r($arrayAllField);
         $arrayForSet = array(); //массив для параметров которые меняем
         foreach ($arrayAllField as $field){
-            if(!empty($field)){
-                if(strtoupper($field) != 'id'){
-                    echo $arrayForSet[] = $field . " = '" . $this->$field . "'";
+            if(isset($this->$field)){
+                if(strtoupper($field) != 'ID'){
+                    $arrayForSet[] = $field . " = '" . $this->$field . "'";
                 }  
                 $whereId = $this->dataResult[0][0];
-                
             }
         }
         /**
@@ -277,11 +275,12 @@ abstract class Mysql {
         /**
          * в строку превращаем массив с параметрами
          */
-        echo $strForSet = implode(', ', $arrayForSet);
+        $strForSet = implode(', ', $arrayForSet);
         
         try{
+            $sql = "UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'"; exit;
             $db = $this->db;
-            $r = $db->query("UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'");
+            $r = $db->query($sql);
         } catch (Exception $e) {
             echo 'Error: '. $e->getMessage();
             echo '<b> Error sql: '. "UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'";

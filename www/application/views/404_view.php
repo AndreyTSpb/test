@@ -19,7 +19,7 @@
     $str_arr = implode('_', $arr);
     
     $select = array(
-        'where' => 'id = 11 AND is_active = 1',
+        'where' => 'id = 10 AND is_active = 1',
     );
     $new1 = new Model_Tbl_News($select);
     // insert data
