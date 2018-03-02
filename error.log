@@ -1,0 +1,2 @@
+[Fri Mar 02 10:31:27.001914 2018] [:error] [pid 6800] [client 127.0.0.1:56216] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 7
+[Fri Mar 02 10:31:27.002006 2018] [:error] [pid 6800] [client 127.0.0.1:56216] PHP Notice:  Undefined variable: row_table in /home/qaz/Sites/test/www/application/views/404_view.php on line 17
