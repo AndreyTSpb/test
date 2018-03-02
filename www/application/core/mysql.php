@@ -52,9 +52,9 @@ abstract class Mysql {
          * то запрос выполнять
          */
         if(!empty($select)){
-            $sql = $this->_getSelect($select);
+            echo $sql = $this->_getSelect($select);
             if($sql){
-                $this->_getResult("SELECT * FROM " .$this->table . $sql);
+                $this->dataResult = $this->_getResult("SELECT * FROM " .$this->table . $sql);
             } 
         }
     }
@@ -72,7 +72,7 @@ abstract class Mysql {
      * (Отображает в объекте)
      * Если в переменной результат есть данные то вернуть эту переменную.
      */
-    public function getAllRow(){
+    public function getAllRows(){
         if(!isset($this->dataResult) OR empty($this->dataResult)) return FALSE;
         return $this->dataResult;
     }
@@ -93,6 +93,17 @@ abstract class Mysql {
             exit;
         }
         return $m;
+    }
+    /**
+     * Извлеч из выборки dateResult одну запись
+     */
+    public function fetchOne() {
+        if(!isset($this->dataResult) OR empty($this->dataResult)) return FALSE;
+        print_r($this->dataResult);
+        foreach ($this->dataResult as $key => $val) {
+            $this->$key = $val;
+        }
+        return TRUE;
     }
     /**
      * Сохранение записи в Базу Данных
@@ -178,5 +189,103 @@ abstract class Mysql {
         }
         return FALSE;
     }
-    
+    /*
+     * Выполнение запроса к БД,
+     * Метод закрытый
+     */
+    private function _getResult($sql) {
+        try{
+            $db = $this->db;
+            $r = $db->query($sql);
+            $m = $r->fetch_all();
+        } catch (Exception $e) {
+            echo 'Error: '.$e->getMessage();
+            exit;
+        }
+        return $m;
+    }
+    /**
+     * удаление из БД по условию
+     */
+    public function deleteBySelect($select) {
+        $sql = $this->_getSelect($select);
+        try{
+            $db = $this->db;
+            $r = $db->query("DELETE FROM " . $this->table ." ".$sql);
+        } catch (Exception $e) {
+            echo 'Error: '. $e->getMessage();
+            echo '<b> Error sql: '. "DELETE FROM " . $this->table ." ".$sql;
+            exit;
+        }
+    }
+    /**
+     * удаление строки по ее id
+     */
+    public function deleteRow($id){
+        /**
+         * Проверка есть ли в данной таблице поле ID 
+         */
+        $arrayAllField = array_keys($this->fieldsTable());
+        array_walk($arrayAllField, function(&$val){ 
+            $val = strtoupper($val);
+        });
+        if(in_array('ID', $arrayAllField)){
+            /*Если есть ID удаляем*/
+            try{
+                $db = $this->db;
+                $r = $db->query("DELETE FROM ".$this->table." WHERE id = '".$id."'");
+            } catch (Exception $e) {
+                echo 'Error: '. $e->getMessage();
+                echo '<b> Error sql: '. "DELETE FROM ".$this->table." WHERE id = '".$id."'";
+                exit;
+            }
+        }else{
+            echo "ID table ".$this->table." not found!!!";
+            exit;
+        }
+        return $r;
+    }
+    /**
+     * обновление записи по ID
+     */
+    public function update() {
+        /**
+         * Проверка есть ли в данной таблице поле ID 
+         */
+        $arrayAllField = array_keys($this->fieldsTable()); // масив с полями таблицы
+        $arrayForSet = array(); //массив для параметров которые меняем
+        foreach ($arrayAllField as $field){
+            if(!empty($this->$field)){
+                if(strtoupper($field) != 'ID'){
+                    echo $arrayForSet[] = $field . " = '" . $this->$field . "'";
+                }else{
+                    $whereId = $this->$field;
+                }
+            }
+        }exit;
+        /**
+         * Проверка заполнениых массивов с полями и значениями таблицы
+         */
+        if(!isset($arrayForSet) OR empty($arrayForSet)){
+            echo " Array data table " .$this->table. " not found";
+            exit;
+        }
+        if(!isset($whereId) OR empty($whereId)){
+            echo "ID table ".$this->table." not found";
+        }
+        /**
+         * в строку превращаем массив с параметрами
+         */
+        $strForSet = implode(', ', $arrayForSet);
+        
+        try{
+            $db = $this->db;
+            $r = $db->query("UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'");
+        } catch (Exception $e) {
+            echo 'Error: '. $e->getMessage();
+            echo '<b> Error sql: '. "UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'";
+            exit;
+        }
+        return $r;
+    }
 }

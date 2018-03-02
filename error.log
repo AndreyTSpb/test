@@ -1,2 +1,21 @@
 [Fri Mar 02 10:31:27.001914 2018] [:error] [pid 6800] [client 127.0.0.1:56216] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 7
 [Fri Mar 02 10:31:27.002006 2018] [:error] [pid 6800] [client 127.0.0.1:56216] PHP Notice:  Undefined variable: row_table in /home/qaz/Sites/test/www/application/views/404_view.php on line 17
+[Fri Mar 02 13:13:57.677729 2018] [:error] [pid 6796] [client 127.0.0.1:56376] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 7
+[Fri Mar 02 13:13:57.678169 2018] [:error] [pid 6796] [client 127.0.0.1:56376] PHP Fatal error:  Call to undefined method mysqli_result::fetch_all() in /home/qaz/Sites/test/www/application/core/mysql.php on line 189
+[Fri Mar 02 13:15:07.240608 2018] [:error] [pid 6810] [client 127.0.0.1:56384] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 7
+[Fri Mar 02 13:15:07.240708 2018] [:error] [pid 6810] [client 127.0.0.1:56384] PHP Notice:  Undefined variable: row_table in /home/qaz/Sites/test/www/application/views/404_view.php on line 28
+[Fri Mar 02 13:15:50.985457 2018] [:error] [pid 6798] [client 127.0.0.1:56390] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 8
+[Fri Mar 02 13:15:50.985554 2018] [:error] [pid 6798] [client 127.0.0.1:56390] PHP Notice:  Undefined variable: row_table in /home/qaz/Sites/test/www/application/views/404_view.php on line 29
+[Fri Mar 02 13:17:44.210178 2018] [:error] [pid 6799] [client 127.0.0.1:56398] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 8
+[Fri Mar 02 13:17:44.210295 2018] [:error] [pid 6799] [client 127.0.0.1:56398] PHP Notice:  Undefined variable: row_table in /home/qaz/Sites/test/www/application/views/404_view.php on line 29
+[Fri Mar 02 13:21:14.669567 2018] [:error] [pid 6800] [client 127.0.0.1:56400] PHP Warning:  Invalid argument supplied for foreach() in /home/qaz/Sites/test/www/application/views/404_view.php on line 14
+[Fri Mar 02 13:21:14.669641 2018] [:error] [pid 6800] [client 127.0.0.1:56400] PHP Notice:  Undefined variable: row_table in /home/qaz/Sites/test/www/application/views/404_view.php on line 35
+[Fri Mar 02 13:28:01.471829 2018] [:error] [pid 6798] [client 127.0.0.1:56442] PHP Notice:  Array to string conversion in /home/qaz/Sites/test/www/application/core/mysql.php on line 136
+[Fri Mar 02 13:30:34.730637 2018] [:error] [pid 6810] [client 127.0.0.1:56464] PHP Fatal error:  Call to undefined method mysqli_result::fetch_all() in /home/qaz/Sites/test/www/application/core/mysql.php on line 191
+[Fri Mar 02 13:31:11.033395 2018] [:error] [pid 6798] [client 127.0.0.1:56468] PHP Fatal error:  Call to undefined method mysqli_result::fetch_all() in /home/qaz/Sites/test/www/application/core/mysql.php on line 189
+[Fri Mar 02 13:35:54.313234 2018] [:error] [pid 6799] [client 127.0.0.1:56474] PHP Fatal error:  Call to undefined method mysqli_result::fetch_all() in /home/qaz/Sites/test/www/application/core/mysql.php on line 189
+[Fri Mar 02 13:44:42.622300 2018] [:error] [pid 6799] [client 127.0.0.1:56512] PHP Fatal error:  Call to undefined method mysqli_result::fetch_all() in /home/qaz/Sites/test/www/application/core/mysql.php on line 189
+[Fri Mar 02 13:48:09.754894 2018] [:error] [pid 6800] [client 127.0.0.1:56516] PHP Fatal error:  Call to undefined method mysqli_result::fetch_all() in /home/qaz/Sites/test/www/application/core/mysql.php on line 189
+[Fri Mar 02 14:12:00.861469 2018] [:error] [pid 8947] [client 127.0.0.1:56744] PHP Fatal error:  Call to undefined method Model_Tbl_News::fetchOne() in /home/qaz/Sites/test/www/application/views/404_view.php on line 27
+[Fri Mar 02 14:12:42.197111 2018] [:error] [pid 8949] [client 127.0.0.1:56750] PHP Fatal error:  Call to undefined method Model_Tbl_News::fetchOne() in /home/qaz/Sites/test/www/application/views/404_view.php on line 27
+[Fri Mar 02 14:15:04.324426 2018] [:error] [pid 8950] [client 127.0.0.1:56770] PHP Fatal error:  Call to undefined method Model_Tbl_News::fetchOne() in /home/qaz/Sites/test/www/application/views/404_view.php on line 27

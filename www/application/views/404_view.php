@@ -1,13 +1,34 @@
 <?php
-    $new = new Model_Tbl_News();
+    /**
+     * Создаем запрос на выборку
+     */
+    $select = array(
+        'order' => 'id DESC'
+    );
+    $new = new Model_Tbl_News($select);
     $tabName = $new->getTableName();
-    $arr = $new->getRowById('1');
-    $str_arr = implode('_', $arr);
-    $allRow = $new->getAllRow();
+    /*select all row*/
+    $allRow = $new->getAllRows();
+    $row_table = '';
     foreach ($allRow as $row){
         $str = implode(" ", $row);
-        $row_table = "<p>".$str."</p>";
+        $row_table .= "<p>".$str."</p>";
     }
+    /*select id */
+    $arr = $new->getRowById('1');
+    $str_arr = implode('_', $arr);
+    
+    $select = array(
+        'where' => 'id = 11 AND is_active = 1',
+    );
+    $new1 = new Model_Tbl_News($select);
+    // insert data
+    $new1->fetchOne();
+    /*new vall*/
+    $new1->is_active = '0';
+    /*update */
+    $r = $new1->update();
+    var_dump($r);
 ?>
 <h1>404</h1>
 <p>

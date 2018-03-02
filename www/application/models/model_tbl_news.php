@@ -24,11 +24,12 @@ class Model_Tbl_News extends Mysql{
      */
     public function fieldsTable() {
         return array(
-            'id' => 'id',
-            'title' => 'title',
-            'small_text' => 'small_text',
-            'big_text' => 'big_text',
+            'id'          => 'id',
+            'title'       => 'title',
+            'small_text'  => 'small_text',
+            'big_text'    => 'big_text',
             'date_create' => 'date_create',
+            'is_active'   => 'is_active'
         );
     }
 }
