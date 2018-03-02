@@ -99,11 +99,10 @@ abstract class Mysql {
      */
     public function fetchOne() {
         if(!isset($this->dataResult) OR empty($this->dataResult)) return FALSE;
-        print_r($this->dataResult);
-        foreach ($this->dataResult as $key => $val) {
+        foreach ($this->dataResult[0] as $key => $val) {
             $this->$key = $val;
         }
-        return TRUE;
+        return $this->dataResult[0];
     }
     /**
      * Сохранение записи в Базу Данных
@@ -253,16 +252,17 @@ abstract class Mysql {
          * Проверка есть ли в данной таблице поле ID 
          */
         $arrayAllField = array_keys($this->fieldsTable()); // масив с полями таблицы
+        print_r($arrayAllField);
         $arrayForSet = array(); //массив для параметров которые меняем
         foreach ($arrayAllField as $field){
-            if(!empty($this->$field)){
-                if(strtoupper($field) != 'ID'){
+            if(!empty($field)){
+                if(strtoupper($field) != 'id'){
                     echo $arrayForSet[] = $field . " = '" . $this->$field . "'";
-                }else{
-                    $whereId = $this->$field;
-                }
+                }  
+                $whereId = $this->dataResult[0][0];
+                
             }
-        }exit;
+        }
         /**
          * Проверка заполнениых массивов с полями и значениями таблицы
          */
@@ -272,11 +272,12 @@ abstract class Mysql {
         }
         if(!isset($whereId) OR empty($whereId)){
             echo "ID table ".$this->table." not found";
+            exit;
         }
         /**
          * в строку превращаем массив с параметрами
          */
-        $strForSet = implode(', ', $arrayForSet);
+        echo $strForSet = implode(', ', $arrayForSet);
         
         try{
             $db = $this->db;

@@ -23,7 +23,9 @@
     );
     $new1 = new Model_Tbl_News($select);
     // insert data
-    $new1->fetchOne();
+    echo "<pre>";
+    print_r( $new1->fetchOne());
+    echo "</pre>";
     /*new vall*/
     $new1->is_active = '0';
     /*update */

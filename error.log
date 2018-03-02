@@ -19,3 +19,6 @@
 [Fri Mar 02 14:12:00.861469 2018] [:error] [pid 8947] [client 127.0.0.1:56744] PHP Fatal error:  Call to undefined method Model_Tbl_News::fetchOne() in /home/qaz/Sites/test/www/application/views/404_view.php on line 27
 [Fri Mar 02 14:12:42.197111 2018] [:error] [pid 8949] [client 127.0.0.1:56750] PHP Fatal error:  Call to undefined method Model_Tbl_News::fetchOne() in /home/qaz/Sites/test/www/application/views/404_view.php on line 27
 [Fri Mar 02 14:15:04.324426 2018] [:error] [pid 8950] [client 127.0.0.1:56770] PHP Fatal error:  Call to undefined method Model_Tbl_News::fetchOne() in /home/qaz/Sites/test/www/application/views/404_view.php on line 27
+[Fri Mar 02 14:46:49.105716 2018] [:error] [pid 8946] [client 127.0.0.1:56880] PHP Notice:  Array to string conversion in /home/qaz/Sites/test/www/application/core/mysql.php on line 103
+[Fri Mar 02 15:03:08.181020 2018] [:error] [pid 8950] [client 127.0.0.1:56888] PHP Notice:  Array to string conversion in /home/qaz/Sites/test/www/application/core/mysql.php on line 103
+[Fri Mar 02 15:17:05.039980 2018] [:error] [pid 8948] [client 127.0.0.1:56988] PHP Strict Standards:  Non-static method Route::ErrorPage404() should not be called statically in /home/qaz/Sites/test/www/application/core/route.php on line 64
