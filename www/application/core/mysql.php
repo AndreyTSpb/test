@@ -278,12 +278,52 @@ abstract class Mysql {
         $strForSet = implode(', ', $arrayForSet);
         
         try{
-            $sql = "UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'"; exit;
+            $sql = "UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'";
             $db = $this->db;
             $r = $db->query($sql);
         } catch (Exception $e) {
             echo 'Error: '. $e->getMessage();
             echo '<b> Error sql: '. "UPDATE ".$this->table." SET ".$strForSet." WHERE id = '".$whereId."'";
+            exit;
+        }
+        return $r;
+    }
+    /**
+     * Надо сделать UPDATE через условие.
+     *
+     */
+    public function updateQuery($select) {
+        $strQuery = $this->_getSelect($select);
+        /**
+         * Проверка есть ли в данной таблице поле ID 
+         */
+        $arrayAllField = array_keys($this->fieldsTable()); // масив с полями таблицы
+        $arrayForSet = array(); //массив для параметров которые меняем
+        foreach ($arrayAllField as $field){
+            if(isset($this->$field)){
+                if(strtoupper($field) != 'ID'){
+                    $arrayForSet[] = $field . " = '" . $this->$field . "'";
+                }
+            }
+        }
+        /**
+         * Проверка заполнениых массивов с полями и значениями таблицы
+         */
+        if(!isset($arrayForSet) OR empty($arrayForSet)){
+            echo " Array data table " .$this->table. " not found";
+            exit;
+        }
+        /**
+         * в строку превращаем массив с параметрами
+         */
+        $strForSet = implode(', ', $arrayForSet);
+        try{
+            $sql = "UPDATE ".$this->table." SET ".$strForSet." ".$strQuery."";
+            $db = $this->db;
+            $r = $db->query($sql);
+        } catch (Exception $e) {
+            echo 'Error: '. $e->getMessage();
+            echo '<b> Error sql: '. "UPDATE ".$this->table." SET ".$strForSet." ".$strQuery."'";
             exit;
         }
         return $r;
