@@ -45,15 +45,7 @@ Modified by VitalySwipe
 				<div id="logo">
 					<a href="/">ОЛОЛОША</span> <span class="cms">TEAM</span></a>
 				</div>
-				<div id="menu">
-					<ul>
-						<li class="first active"><a href="/">Главная</a></li>
-						<li><a href="/services">Услуги</a></li>
-						<li><a href="/portfolio">Портфолио</a></li>
-						<li class="last"><a href="/contacts">Контакты</a></li>
-					</ul>
-					<br class="clearfix" />
-				</div>
+				<?php include 'application/views/menu_view.php'; ?>
 			</div>
 			<div id="page">
 				<div id="sidebar">
