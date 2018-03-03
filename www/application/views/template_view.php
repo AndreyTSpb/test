@@ -46,6 +46,7 @@ Modified by VitalySwipe
 					<a href="/">ОЛОЛОША</span> <span class="cms">TEAM</span></a>
 				</div>
 				<?php include 'application/views/menu_view.php'; ?>
+                                <?php include 'application/views/enter_view.php'; ?>
 			</div>
 			<div id="page">
 				<div id="sidebar">

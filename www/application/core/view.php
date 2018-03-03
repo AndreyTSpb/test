@@ -20,7 +20,12 @@ class View
 			extract($data);
 		}
 		*/
-		
+                if(!empty($_COOKIE['phone']) AND !empty($_COOKIE['password'])){
+                    $chek = new Controller();
+                    $data = $chek->check($_COOKIE['phone'],$_COOKIE['password']);
+//                    print_r($data);
+//                    if($data['enter'] == 'active') echo "test";
+                }
 		/*
 		динамически подключаем общий шаблон (вид),
 		внутри которого будет встраиваться вид

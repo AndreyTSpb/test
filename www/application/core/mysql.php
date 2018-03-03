@@ -10,9 +10,6 @@
  * @author qaz
  */
 abstract class Mysql {
-//    function test(){
-//        echo 'test';
-//    }
     /**
      * Константы
      */
@@ -52,7 +49,7 @@ abstract class Mysql {
          * то запрос выполнять
          */
         if(!empty($select)){
-            echo $sql = $this->_getSelect($select);
+            $sql = $this->_getSelect($select);
             if($sql){
                 $this->dataResult = $this->_getResult("SELECT * FROM " .$this->table . $sql);
             } 
@@ -107,7 +104,34 @@ abstract class Mysql {
     /**
      * Сохранение записи в Базу Данных
      */
+    // запись в базу данных
     public function save() {
+        global $dbObject;
+        $arrayAllFields = array_keys($this->fieldsTable());
+        $arraySetFields = array();
+        $arrayData = array();
+        foreach($arrayAllFields as $field){
+            if(!empty($this->$field)){
+                $arraySetFields[] = $field;
+                $arrayData[] = $this->$field;
+            }
+        }
+        $forQueryFields =  implode(', ', $arraySetFields);
+        $rangePlace = array_fill(0, count($arraySetFields), '?');
+        $forQueryPlace = implode(', ', $rangePlace);
+         
+        try {
+            $stmt = $dbObject->prepare("INSERT INTO $this->table ($forQueryFields) values ($forQueryPlace)");  
+            $result = $stmt->execute($arrayData);
+        }catch(PDOException $e){
+            echo 'Error : '.$e->getMessage();
+            echo '<br/>Error sql : ' . "'INSERT INTO $this->table ($forQueryFields) values ($forQueryPlace)'"; 
+            exit();
+        }
+         
+        return $result;
+    }
+    public function save1() {
         /**
          * получаем масив с набором полей таблицы
          */
@@ -120,17 +144,31 @@ abstract class Mysql {
                 $arrayData[] = $this->field;
             }
         }
-        $forQueryFields = implode(',', $arraySetFields);
-        $rangePlace = array_fill(0 , count($arraySetFields), '?');
-        $forQueryPlace = implode(', ', $rangePlace);
+        echo $forQueryFields = trim(implode(', ', $arraySetFields));
+        echo $rangePlace = array_fill(0 , count($arraySetFields), '?');
+        echo $forQueryPlace = trim(implode(', ', $rangePlace));
         
         try{
             /**
              * Делаем через подготовленый запрос
              */
+            echo $sql = "INSERT INTO ".$this->table."(".$forQueryFields.") VALUES (".$forQueryPlace.");";
             $db = $this->db;
-            $smtp = $db->prepare("INSERT INTO '".$this->table."' (".$forQueryFields.") VALUES (".$forQueryPlace.")");
-            $res = $smtp->execute($arrayData);
+            $smtp = $db->stmt_init();
+            if ($smtp->errno) { 
+                throw new \Exception('Ошибка1 в SQL-запросе!'); 
+            } 
+            $smtp->prepare($sql);
+            if ($smtp->errno) { 
+                throw new \Exception('Ошибка2 в SQL-запросе!'); 
+            }
+            $test = " test, tesr";
+            $smtp->bind_param('ss',$test );
+            $res = $smtp->execute();
+            if ($smtp->errno) { 
+                throw new \Exception('Ошибка3 в SQL-запросе!'); 
+            }
+            $smtp->close();
         } catch (Exception $e) {
              echo 'Error: '.$e->getMessage();
              echo '<b> Error sql: '. "INSERT INTO '".$this->table."' (".$forQueryFields.") VALUES (".$forQueryPlace.")";

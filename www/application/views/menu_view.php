@@ -12,7 +12,6 @@
 	<li><a href="/services">Услуги</a></li>
 	<li><a href="/portfolio">Портфолио</a></li>
 	<li class="last"><a href="/contacts">Контакты</a></li>
-        <li class="last"><a href="/login">Логин</a></li>
     </ul>
     <br class="clearfix" />
 </div>

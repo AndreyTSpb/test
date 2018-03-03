@@ -32,4 +32,5 @@ class Model_Tbl_News extends Mysql{
             'is_active'   => 'is_active'
         );
     }
+    
 }

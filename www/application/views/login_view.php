@@ -1,5 +1,6 @@
 <?php
-
+    //print_r($data);
+    
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +10,12 @@
 <div class='content'>
 <h1>Войти В ЛК</h1>
 <div class='login_form'>
-    <form method="post">
+    <form method="post" action="">
         <ul>
             <li>
                 <label>Login:</label>
                 <div>
-                    <input type='text' name="loginLogi">
+                    <input type='text' name="loginLogi" required>
                 </div>
             </li>
             <li>
@@ -30,6 +31,9 @@
             </li>
         </ul>
     </form>
+</div>
+<div class = 'error'>
+    <div style = 'background-color: red;'><?=$error_login;?></div>
 </div>
 <div calss='rememperRegistr'>
     <div>

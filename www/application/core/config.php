@@ -17,11 +17,8 @@ define('DB_NAME', 'mvc');/*Имя БД*/
 $link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if($link->connect_errno){
     echo'ERROR CONNECT TO DB' . $link->connect_error;
-}else{
-    echo 'Connect to DB!!!';
 }
 $link->query("SET NAMES utf8");
-$r=$link->query("SELECT * FROM tbl_news WHERE id = '1'");
-$m = $r->fetch_assoc();
-$str_arr = implode('_', $m);
-echo $str_arr;
+
+// Соединяемся с БД
+$dbObject = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
