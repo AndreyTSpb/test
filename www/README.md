@@ -20,11 +20,9 @@
             Надо дополнить другими операторами, на данный момент их мало.</div>
         </li>
         <li>
-            <div>
                 Получение записей из бд
             
                 <h4>Получение нескольких строк из таблицы:</h4>
-                <div>
                     <p>
                         // создаем запрос
                         $select = array(<br>
@@ -37,9 +35,7 @@
                         $usersInfo = $model->getAllRows(); // получаем все строки<br>
                         var_dump($usersInfo); // выводим данные<br>
                     </p>
-                </div>
                 <h4>Получение одной строки из таблицы:</h4>
-                <div>
                     <p>
                         $select = array(<br>
                             'where' => 'id = 2'<br>
@@ -48,9 +44,7 @@
                         $usersInfo = $model->getOneRow();<br>
                         var_dump($usersInfo);<br>
                     </p>
-                </div>
                 <h4>Помимо получения строк, мы можем получать значения конкретных столбцов:</h4>
-                <div>
                     <p>
                         // запрос<br>
                         $select = array(<br>
@@ -65,10 +59,8 @@
                         var_dump($firstName);<br>
                         var_dump($lastName);<br>
                     </p>
-                </div>
                 <h3>Создание записи в бд</h3>
                 <h4>Также просто, как и получать, мы можем и записывать данные:</h4>
-                <div>
                     <p>
                         // создаем объект<br>
                         $model = new Model_Users();<br>
@@ -79,10 +71,8 @@
                         $result = $model->save(); // создаем запись<br>
                         var_dump($result); // проверяем результат:  true или false<br>
                     </p>
-                </div>
                 <h3>Обновление записи в бд</h3>
                 <h4>Обновление записей в таблице тоже не составит проблем, выглядеть это будет так:</h4>
-                <div>
                     <p>
                         // запрос<br>
                         $select = array(<br>
@@ -98,11 +88,8 @@
                         // обновляем запись<br>
                         $result = $model->update();<br>
                         var_dump($result); // проверяем результат:  true или false<br>
-                    </p>
-                </div>
                 <h3>Удаление записи в бд</h3>
                 <h4>И последнее элементарное действие с базой данных – удаление записей.</h4>
-                <div>
                     <p>
                         // модель<br>
                         $model = new Model_Users();<br>
@@ -114,10 +101,8 @@
                         $result = $model->deleteBySelect($select);<br>
                         var_dump($result); // проверяем результат. Вернется количество удаленных строк<br>
                     </p>
-                </div>
             
                 <h4>И еще один доступный вариант удаления, для одной записи:</h4>
-                <div>
                     <p>
                         // запрос<br>
                         $select = array(<br>
@@ -131,8 +116,6 @@
                         $result = $model->deleteRow();<br>
                         var_dump($result);<br>
                     </p>
-                </div>
-            </div>
         </li>
     </ol>
 </p>
