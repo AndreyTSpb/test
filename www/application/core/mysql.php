@@ -48,6 +48,7 @@ abstract class Mysql {
          * если вернется строка, 
          * то запрос выполнять
          */
+        //print_r($select); 
         if(!empty($select)){
             $sql = $this->_getSelect($select);
             if($sql){
@@ -122,14 +123,15 @@ abstract class Mysql {
          
         try {
             $stmt = $dbObject->prepare("INSERT INTO $this->table ($forQueryFields) values ($forQueryPlace)");  
-            $result = $stmt->execute($arrayData);
+            $stmt->execute($arrayData);
+            $id = $dbObject->lastInsertId();
         }catch(PDOException $e){
             echo 'Error : '.$e->getMessage();
             echo '<br/>Error sql : ' . "'INSERT INTO $this->table ($forQueryFields) values ($forQueryPlace)'"; 
             exit();
         }
          
-        return $result;
+        return $id;
     }
     public function save1() {
         /**
@@ -182,6 +184,7 @@ abstract class Mysql {
     private function _getSelect($select) {
         if(is_array($select)){
             $allQuery = array_keys($select);
+            //print_r($allQuery);
             /**
              * Применяем свою функцию к каждому элемнту массива
              */

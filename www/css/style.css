@@ -294,3 +294,39 @@ a {
     font-weight: bold;
     text-align: right;
 }
+form li{
+    list-style-type: none; /* Убираем маркеры */
+}
+.reg_form {
+    background: #FCFCFC;
+    border-radius: 0 0 3px 3px;
+    padding: 15px;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0 0 4px #D8D8D8;
+    -webkit-box-shadow: 0 0 4px #D8D8D8;
+}
+.reg_form input{
+        vertical-align: middle;
+        font-size: 16px;
+        padding: 5px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        margin-bottom: 5px;
+        margin-left: 15px;
+}
+.reg_form input[type=submit]{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    
+}
+.reg_form input[type=submit]{
+    margin-top: 10px;
+}
+.content h1{
+    border-bottom: 1px dashed #B6B6B6;
+}

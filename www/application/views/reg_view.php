@@ -1,5 +1,4 @@
 <?php
-
 /* 
  * Регистрация на сайте
  */
@@ -30,7 +29,7 @@
                 </li>
                 <li>
                     <label></label>
-                    <div>
+                    <div class="button">
                         <input type="submit" name="regSub">
                     </div>
                 </li>

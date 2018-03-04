@@ -33,7 +33,17 @@ class Controller_Login extends Controller{
                                 Логин и пароль должны храниться в БД, причем пароль должен быть захеширован.
                             */
                             $data = $this->check($login, $password);
-                            header ("Location: /");
+                            //print_r($data); exit;
+                            if($data['enter'] === 'not_active'){
+                                header ("Location: /regfinish");
+                                exit;
+                            }elseif($data['enter'] === 'active'){
+                                header ("Location: /");
+                                exit;
+                            }else{
+                                header ("Location: /reg");
+                                exit;
+                            }
                     }
              }
              /*создания страницы*/

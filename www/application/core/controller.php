@@ -37,7 +37,7 @@ class Controller {
                 }else{
                     if(empty($row[3])){
                         $data['error_login'] = "Акаунт не активирован!!!";
-                        $data['enter'] = "not";
+                        $data['enter'] = "not_active";
                         return $data;
                     }
                     if($row[3] == '1'){
