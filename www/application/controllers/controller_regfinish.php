@@ -19,6 +19,7 @@
  */
 class Controller_RegFinish extends Controller{
     function action_index() {
+        $data['error_reg'] = '';
         if(isset($_POST['regFinish'])){
                  if(isset($_POST['email']) && isset($_POST['code']))
                     {

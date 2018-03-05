@@ -17,8 +17,7 @@ class Controller_Login extends Controller{
             /**
              * Проверка куки, если есть и совпадают с БД то автологин.
              */
-            //if ($this->check($_COOKIE['phone'], $_COOKIE['password'])) header ("Location: /my");
-            //$data["login_status"] = "";
+            $data["login_status"] = "";
             /**
              * Обработка ответа от формы 
              */    
@@ -39,9 +38,6 @@ class Controller_Login extends Controller{
                                 exit;
                             }elseif($data['enter'] === 'active'){
                                 header ("Location: /");
-                                exit;
-                            }else{
-                                header ("Location: /reg");
                                 exit;
                             }
                     }

@@ -2,12 +2,15 @@
 if(!empty($data)){
     extract($data);
 }
+if(!isset($enter)){
+    $enter = '';
+}
 /* 
  * Меню входа на сайт
  */
 ?>
 <div class='enter'>
-    <?php if($enter == 'active'){?>
+    <?php if($enter === 'active'){?>
     <div>
         <a href="/logoff">Выход</a>
     </div>

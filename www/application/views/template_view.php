@@ -42,61 +42,33 @@ Modified by VitalySwipe
 	<body>
 		<div id="wrapper">
 			<div id="header">
+                            <div>
+                                <?php include 'application/views/menu_view.php'; ?>
 				<div id="logo">
 					<a href="/">ОЛОЛОША</span> <span class="cms">TEAM</span></a>
 				</div>
-				<?php include 'application/views/menu_view.php'; ?>
                                 <?php include 'application/views/enter_view.php'; ?>
+                            </div>
 			</div>
 			<div id="page">
 				<div id="sidebar">
-					<div class="side-box">
-						<h3>Случайная цитата</h3>
-						<p align="justify" class="quote">
-						«Сайт, как живой организм, изменяется и развивается.
-						Нельзя сразу написать идеальный вариант и на этом откланяться - это утопия»
-						</p>
-						<p align="justify" class="quote"><!-- &copy; Vitaly Swipe -->
-						«Все должно быть очень просто, как текстовый файл и при этом функционально
-						и тогда пользователи от нас уйдут»
-						</p>
-						<p align="justify" class="quote">
-						«Критика - это когда критик объясняет автору, как сделал бы он, если бы умел»
-						</p>
-						<p align="justify" class="quote"><!-- &copy; Vitaly Swipe -->
-						«Сумасшедшим становиться тот, кто попытался разобраться в этом сумасшедшем мире»
-						</p>
-						<p align="justify" class="quote">
-						«Опытный разработчик знает, какой выбор ведет к поставленной цели, в то время как
-						новичок каждый раз делает шаг в неизвестность»
-						</p>
-					</div>
-					<div class="side-box">
-						<h3>Основное меню</h3>
-						<ul class="list">
-							<li class="first "><a href="/">Главная</a></li>
-							<li><a href="/services">Услуги</a></li>
-							<li><a href="/portfolio">Портфолио</a></li>
-							<li class="last"><a href="/contacts">Контакты</a></li>
-						</ul>
-					</div>
+					<?php  include 'application/views/sidebox_view.php';  ?>
+                                        <?php if($enter === 'active'){ include 'application/views/usermenu_view.php'; } ?>
 				</div>
 				<div id="content">
+                                        <div class="map">
+                                            <?php include 'application/views/maps_view.php';?>
+                                        </div>
+                                        <br class="clearfix" />
 					<div class="box">
 						<?php include 'application/views/'.$content_view; ?>
-						<!--
-						<h2>Welcome to Accumen</h2>
-						<img class="alignleft" src="images/pic01.jpg" width="200" height="180" alt="" />
-						<p>
-							This is <strong>Accumen</strong>, a free, fully standards-compliant CSS template by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. The images used in this template are from <a href="http://fotogrph.com/">Fotogrph</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 3.0</a> license, so you are pretty much free to do whatever you want with it (even use it commercially) provided you keep the footer credits intact. Aside from that, have fun with it :)
-						</p>
-						-->
 					</div>
 					<br class="clearfix" />
 				</div>
 				<br class="clearfix" />
 			</div>
 			<div id="page-bottom">
+                            <a name="contact"></a>
 				<div id="page-bottom-sidebar">
 					<h3>Наши контакты</h3>
 					<ul class="list">
@@ -106,35 +78,13 @@ Modified by VitalySwipe
 					</ul>
 				</div>
 				<div id="page-bottom-content">
-					<h3>О Компании</h3>
-					<p>
-Вот дом.
-Который построил Джек.
-
-А это пшеница.
-Которая в тёмном чулане хранится
-В доме,
-Который построил Джек.
-
-А это весёлая птица-синица,
-Которая ловко ворует пшеницу,
-Которая в тёмном чулане хранится
-В доме,
-Который построил Джек.
-
-Вот кот,
-Который пугает и ловит синицу,
-Которая ловко ворует пшеницу,
-Которая в тёмном чулане хранится
-В доме,
-Который построил Джек.
-					</p>
+					<?php include 'application/views/aboutbottom_view.php'; ?>
 				</div>
 				<br class="clearfix" />
 			</div>
 		</div>
 		<div id="footer">
-			<a href="/">ОЛОЛОША TEAM</a> &copy; 2012</a>
+			<a href="/">ОЛОЛОША TEAM</a> &copy; <?=date('Y',time());?></a>
 		</div>
 	</body>
 </html>

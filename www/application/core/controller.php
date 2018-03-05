@@ -31,7 +31,7 @@ class Controller {
                 $row = $query->getOneRow();
                             
 		if(empty($row)){
-                        $data['error_login'] =  "В базе ничего не найдено!!!";
+                        $data['error_login'] =  "Логин или пароль неправельный!!!";
                         $data['enter'] = "not";
                         return $data;
                 }else{

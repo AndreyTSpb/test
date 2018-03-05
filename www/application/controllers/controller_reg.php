@@ -11,6 +11,7 @@
  */
 class Controller_Reg extends Controller{
     function action_index() {
+        $data['error_reg'] ='';
         if(isset($_POST['regSub'])){
             if(isset($_POST['email']) AND isset($_POST['pas1'])){
                 $login = htmlspecialchars(trim($_POST['email']));

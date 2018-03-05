@@ -1,6 +1,5 @@
 <?php
-    //print_r($data);
-    
+    if(!isset($error_login)) $error_login='';
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -41,7 +40,7 @@
     </div>
     <hr>
     <div>
-        <a href="/regsite">Зарегистрироваться!!!</a>
+        <a href="/reg">Зарегистрироваться!!!</a>
     </div>
 </div>
 </div>

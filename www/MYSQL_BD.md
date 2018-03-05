@@ -22,3 +22,12 @@ INSERT INTO `tbl_news` (`id`, `title`, `small_text`, `big_text`, `date_create`, 
     (9, 'Новость 9', 'короткое описание', 'полный текст', '2014-01-18 17:36:57', 1),
     (10, 'Новость 10', 'короткое описание', 'полный текст', '2014-01-18 17:37:01', 1),
     (11, 'Новость 11', 'короткое описание', 'полный текст', '2014-01-18 17:37:04', 1);
+
+--Создание таблицы для хранения основных начений о компании
+CREATE TABLE `main_site` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(45) COLLATE 'utf8_general_ci' NOT NULL,
+  `text` text COLLATE 'utf8_general_ci' NOT NULL,
+  `type` varchar(45) COLLATE 'utf8_general_ci' NOT NULL,
+  `del` int(1) NOT NULL DEFAULT '0'
+);
