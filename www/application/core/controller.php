@@ -31,13 +31,13 @@ class Controller {
                 $row = $query->getOneRow();
                             
 		if(empty($row)){
-                        $data['error_login'] =  "Логин или пароль неправельный!!!";
-                        $data['enter'] = "not";
+                        //$data['error_login'] =  "Логин или пароль неправельный!!!";
+                        $data= "not";
                         return $data;
                 }else{
                     if(empty($row[3])){
-                        $data['error_login'] = "Акаунт не активирован!!!";
-                        $data['enter'] = "not_active";
+                        //$data['error_login'] = "Акаунт не активирован!!!";
+                        $data= "not_active";
                         return $data;
                     }
                     if($row[3] == '1'){
@@ -45,7 +45,7 @@ class Controller {
                         setcookie('phone', $row[1], time()+864000, '/');
                         //setcookie('email', $m['email'], time()+864000, '/');
                         setcookie('password', $row[2], time()+864000, '/');
-                        $data['enter'] = "active";
+                        $data= "active";
                         return $data;
                     }
                 }		

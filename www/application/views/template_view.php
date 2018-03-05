@@ -56,10 +56,6 @@ Modified by VitalySwipe
                                         <?php if($enter === 'active'){ include 'application/views/usermenu_view.php'; } ?>
 				</div>
 				<div id="content">
-                                        <div class="map">
-                                            <?php include 'application/views/maps_view.php';?>
-                                        </div>
-                                        <br class="clearfix" />
 					<div class="box">
 						<?php include 'application/views/'.$content_view; ?>
 					</div>

@@ -22,13 +22,14 @@ class View
 		*/
                 if(!empty($_COOKIE['phone']) AND !empty($_COOKIE['password'])){
                     $chek = new Controller();
-                    $data = $chek->check($_COOKIE['phone'],$_COOKIE['password']);
+                    $ch = $chek->check($_COOKIE['phone'],$_COOKIE['password']);
                 }
                 /**
                  *Отсюда будем тянуть модули для общего шаблона
                  */
                 $about = new Model_Aboutbottom();
                 $data['content_about'] = $about->get_data();
+                $data['enter'] = $ch;
 		/*
 		динамически подключаем общий шаблон (вид),
 		внутри которого будет встраиваться вид

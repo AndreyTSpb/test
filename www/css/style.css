@@ -1,13 +1,4 @@
-﻿/*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 3.0 License
 
-Name       : Accumen
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20120712
-*/
 
 * {
 	margin: 0;
@@ -302,7 +293,8 @@ a {
 form li{
     list-style-type: none; /* Убираем маркеры */
 }
-.reg_form {
+.reg_form, 
+.login_form {
     background: #FCFCFC;
     border-radius: 0 0 3px 3px;
     padding: 15px;
@@ -310,7 +302,8 @@ form li{
     box-shadow: 0 0 4px #D8D8D8;
     -webkit-box-shadow: 0 0 4px #D8D8D8;
 }
-.reg_form input{
+.reg_form input, 
+.login_form input{
         vertical-align: middle;
         font-size: 16px;
         padding: 5px 12px;
@@ -323,15 +316,26 @@ form li{
         margin-bottom: 5px;
         margin-left: 15px;
 }
-.reg_form input[type=submit]{
+.reg_form input[type=submit],
+.login_form input[type=submit]{
     color: #fff;
     background-color: #428bca;
     border-color: #357ebd;
     
 }
-.reg_form input[type=submit]{
+.reg_form input[type=submit],
+.login_form input[type=submit]{
     margin-top: 10px;
 }
 .content h1{
     border-bottom: 1px dashed #B6B6B6;
+}
+/*Block News*/
+.news_block{
+    width: 100%;
+}
+.news_block div{
+    display: inline-block;
+    width: 32%;
+    list-style-type: none; /* Убираем маркеры */
 }
