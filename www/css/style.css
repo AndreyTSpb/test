@@ -81,8 +81,9 @@ a {
 
 #content {
 	padding: 0 0 0 10px;
-	width: 615px;
+	width: 898px;
 	margin: 0 0 0 285px;
+        /*margin: 0 auto;*/
 }
 
 #footer {
@@ -337,5 +338,30 @@ form li{
 .news_block div{
     display: inline-block;
     width: 32%;
+}
+.news_block li{
     list-style-type: none; /* Убираем маркеры */
+}
+
+/**/
+.main_page >div{
+    display: block;
+    height: 205px;
+}
+.main_page .block{
+    display: inline-block;
+    width: 32%;
+}
+/*Блоки с выбором групп*/
+.sale >div{
+    width: 200px;
+    height: 200px;
+    background: #f3f3f3;
+    padding: 20px;
+    border: solid 1px #e3e3e3;
+    margin: 0 10px 10px 0;
+    /*text-shadow: 1px 1px 0px rgba(255,255,255,1);*/
+    box-shadow: inset 0px 0px 0px 1px #fff;
+/*    margin: 5px;*/
+    display: inline-block;
 }
