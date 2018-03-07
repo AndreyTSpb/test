@@ -354,7 +354,7 @@ form li{
 }
 /*Блоки с выбором групп*/
 .sale >div{
-    width: 200px;
+    width: 190px;
     height: 200px;
     background: #f3f3f3;
     padding: 20px;
@@ -364,4 +364,11 @@ form li{
     box-shadow: inset 0px 0px 0px 1px #fff;
 /*    margin: 5px;*/
     display: inline-block;
+}
+/*Блок с ценой при выборе групп*/
+.sale .block_price{
+    width: 120px;
+    display: inline-block;
+    position: relative;
+    float: right;
 }

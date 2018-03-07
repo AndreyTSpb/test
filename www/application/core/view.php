@@ -20,6 +20,7 @@ class View
 			extract($data);
 		}
 		*/
+                $ch ='';
                 if(!empty($_COOKIE['phone']) AND !empty($_COOKIE['password'])){
                     $chek = new Controller();
                     $ch = $chek->check($_COOKIE['phone'],$_COOKIE['password']);
