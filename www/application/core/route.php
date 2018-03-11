@@ -14,8 +14,25 @@ class Route
 		$controller_name = 'Main';
 		$action_name = 'index';
 		
-		$routes = explode('/', $_SERVER['REQUEST_URI']);
-
+                /**
+                 * разделяем строку на переменные и путь
+                 * разделитель ?, разделитель пременных &
+                 */
+                list($route_str, $param_str) = explode('?', $_SERVER['REQUEST_URI']);
+                /*Делим строку пути на состовлющие: массив с ключом 1 - контроллер, а 2- действие из этого конролера*/
+		$routes = explode('/', $route_str);
+                //print_r($routes); exit;
+                /*Получаем переменные если переданы*/
+                if(!empty($param_str)){
+                    $par = explode('&', $param_str);
+                    /*разделяем параметры на ключ = значение, разделитель =*/
+                    $params = array();
+                    foreach ($par as $val){
+                        list($key, $item) = explode('=', $val);
+                        $params[$key] = $item; 
+                    }
+                    //print_r($params); exit;
+                }
 		// получаем имя контроллера
 		if ( !empty($routes[1]) )
 		{	
@@ -33,7 +50,7 @@ class Route
 		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
 
-		/*
+		/**
 		echo "Model: $model_name <br>";
 		echo "Controller: $controller_name <br>";
 		echo "Action: $action_name <br>";
@@ -71,7 +88,8 @@ class Route
 		if(method_exists($controller, $action))
 		{
 			// вызываем действие контроллера
-			$controller->$action();
+                        //Передаем ему параметры если есть.
+			$controller->$action($params);
 		}
 		else
 		{

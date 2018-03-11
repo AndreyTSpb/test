@@ -353,7 +353,7 @@ form li{
     width: 32%;
 }
 /*Блоки с выбором групп*/
-.sale >div{
+.sale .select_group{
     width: 190px;
     height: 200px;
     background: #f3f3f3;
@@ -367,8 +367,16 @@ form li{
 }
 /*Блок с ценой при выборе групп*/
 .sale .block_price{
-    width: 120px;
-    display: inline-block;
+    width: 110px;
+    /*display: inline-block;*/
     position: relative;
-    float: right;
+    float: left;
+}
+.for_block_price{
+    width: 220px;
+    display: inline-block;
+    position: fixed;
+    /*float: right;*/
+    right: 15px;
+    background-color: white;
 }

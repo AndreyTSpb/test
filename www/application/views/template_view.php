@@ -17,10 +17,9 @@ Modified by VitalySwipe
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<title>ОЛОЛОША TEAM</title>
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<script src="/js/jquery-1.6.2.js" type="text/javascript"></script>
+                <script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
 		<script type="text/javascript">
 		// return a random integer between 0 and number
 		function random(number) {

@@ -16,6 +16,7 @@ class Model_Logins extends Mysql{
      */
     public $id;
     public $login;
+    public $phone;
     public $pass;
     public $active;
     
@@ -27,7 +28,8 @@ class Model_Logins extends Mysql{
             'id'     => 'id',
             'login'  => 'login',
             'pass'    => 'pass',
-            'active' => 'active'
+            'active' => 'active',
+            'phone'  => 'phone',
         );
     }
 }

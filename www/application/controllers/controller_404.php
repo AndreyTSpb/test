@@ -7,5 +7,10 @@ class Controller_404 extends Controller
 	{
 		$this->view->generate('404_view.php', 'template_view.php');
 	}
-
+        function action_tyt($params = false){
+            foreach ($params as $key => $val){
+                echo $key .'=>'.$val."<br>";
+            } 
+            exit;
+        }
 }

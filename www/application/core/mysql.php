@@ -95,12 +95,17 @@ abstract class Mysql {
     /**
      * Извлеч из выборки dateResult одну запись
      */
-    public function fetchOne() {
+   public function fetchOne() {
+        
         if(!isset($this->dataResult) OR empty($this->dataResult)) return FALSE;
         foreach ($this->dataResult[0] as $key => $val) {
-            $this->$key = $val;
+            $this->{$key} = $val;
+            //echo $key;
         }
-        return $this->dataResult[0];
+        //echo $this->activcode;echo" <br>";
+        //echo $this->name;echo" <br>";
+        //print_r($this->dataResult[0]); exit;
+        return true;
     }
     /**
      * Сохранение записи в Базу Данных
@@ -237,7 +242,8 @@ abstract class Mysql {
         try{
             $db = $this->db;
             $r = $db->query($sql);
-            $m = $r->fetch_all();
+            //echo $sql; exit;
+            $m = $r->fetch_all(3); //MYSQLI_BOTH
         } catch (Exception $e) {
             echo 'Error: '.$e->getMessage();
             exit;

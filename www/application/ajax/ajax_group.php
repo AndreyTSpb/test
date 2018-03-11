@@ -1,55 +1,40 @@
 <?php
-
+require_once '../core/config.php';
+global $link;
 /* 
  * проверка на свободные места и вывод цены
  * 1) проверить на свободные места.
  * 2) если есть посчитать стоимость и выдать сообщение с ценой
  * 3) если нет свободных мест сказать об этом
  */
-
-
-/*тестовый массив с местами*/
-$groups = array(
-    '0' => array(
-        'place' => '0',
-        'price'=> '100'
-    ),
-    '1' => array(
-        'place' => '1',
-        'price'=> '110'
-    ),
-    '2' => array(
-        'place' => '2',
-        'price'=> '120'
-    ),
-    '3' => array(
-        'place' => '20',
-        'price'=> '10'
-    ),
-    '4' => array(
-        'place' => '10',
-        'price'=> '20'
-    ),
-    '5' => array(
-        'place' => '0',
-        'price'=> '200'
-    ),
-);
-
 /**
  * переменные переданные пост запросом.
  */
-$id_group = $_POST['id'];
-
-if(isset($_POST['id'])){
-    if(!array_key_exists($id_group, $groups)){
+$id_group = (int)$_POST['id'];
+/*Получаем макс кол учеников*/
+$sql = "SELECT max_users FROM groups WHERE id = '".$id_group."'";
+$r = $link->query($sql);
+$m = $r->fetch_assoc();
+$max_users = $m['max_users'];
+/*получаем текущию цену группы*/
+$sql1 = "SELECT * FROM group_prices WHERE id_group = '".$id_group."' ORDER BY dt DESC LIMIT 1";
+$r1 = $link->query($sql1);
+$m1 = $r1->fetch_assoc();
+$price = 0;
+for($i=1; $i<10; $i++){
+    $a = "p".$i;
+    if($m1[$a]>0){
+        $price +=$m1[$a];
+    }
+}
+/*Считаем кол-во купленых и забронированых*/
+if(isset($id_group)){
+    if(empty($id_group)){
         $rez = "<div class='error'>NOt this group</div>";
     }else{
-            $price = $groups[$id_group]['price'];
-            $place = $groups[$id_group]['place'];
-        if(empty($place)){
-            $rez = "<div class='error'>Свободных мест нет!!!</div>";
-        }elseif($place>0){
+        if(empty($max_users)){
+            $rez = "<div class='error'>$id_group Свободных $price мест $m[1] нет!!!$max_users</div>";
+        }elseif($max_users>0){
             $rez = '<div>Price</div>
             <div>
                 <div class="price_hold">
@@ -65,4 +50,5 @@ if(isset($_POST['id'])){
 }else{
     $rez = "<div class='error'>Ничего не выбрано!!!</div>";
 }
-echo $rez;
+$rez1 ='<div class="block_price">'.$rez.'</div>';
+echo $rez1;
