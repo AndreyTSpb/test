@@ -31,7 +31,7 @@ class Controller_Login extends Controller{
                                 Такое решение не верно с точки зрения безопсаности и сделано для упрощения примера.
                                 Логин и пароль должны храниться в БД, причем пароль должен быть захеширован.
                             */
-                            $data['enter'] = $this->check($login, $password);
+                            $data['enter'] = $this->check($login, md5($password));
 //                            print_r($data['enter']); exit;
                             
                             if($data['enter'] === 'not_active'){

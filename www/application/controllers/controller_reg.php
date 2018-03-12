@@ -23,7 +23,7 @@ class Controller_Reg extends Controller{
                     $data['error_reg'] = $login." ".$password;
                     $query = new Model_Logins();
                     $query->login = $login;
-                    $query->pass = $password;
+                    $query->pass = md5($password);
                     $id_user = $query->save();
                     if(empty($id_user)){
                         $data['error_reg'] = "Запись не добавленна!!!";
@@ -33,7 +33,7 @@ class Controller_Reg extends Controller{
                          */
                         $code = new Model_Gen_Code;
                         /**
-                         * Сохраняем сгенерированый пароль.
+                         * Сохраняем сгенерированый код.
                          */
                         $query1 = new Model_Active_Code();
                         $query1->code = $code->generate_password();
