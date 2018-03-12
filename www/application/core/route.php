@@ -18,15 +18,26 @@ class Route
                  * разделяем строку на переменные и путь
                  * разделитель ?, разделитель пременных &
                  */
-                list($route_str, $param_str) = explode('?', $_SERVER['REQUEST_URI']);
+                $route_arr = explode('?', $_SERVER['REQUEST_URI']);
+                if(!empty($route_arr[0])){
+                    $route_str = $route_arr[0]; 
+                }else{
+                    $route_str ='';
+                }
+                if(!empty($route_arr[1])){
+                    $param_str = $route_arr[1]; 
+                }else{
+                    $param_str ='';
+                }
+                //print_r($route_arr[0]); exit;
                 /*Делим строку пути на состовлющие: массив с ключом 1 - контроллер, а 2- действие из этого конролера*/
 		$routes = explode('/', $route_str);
                 //print_r($routes); exit;
                 /*Получаем переменные если переданы*/
+                $params = array();
                 if(!empty($param_str)){
                     $par = explode('&', $param_str);
                     /*разделяем параметры на ключ = значение, разделитель =*/
-                    $params = array();
                     foreach ($par as $val){
                         list($key, $item) = explode('=', $val);
                         $params[$key] = $item; 

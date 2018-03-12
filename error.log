@@ -194,3 +194,46 @@
 [Wed Mar 07 15:10:24.835002 2018] [:error] [pid 11940] [client 127.0.0.1:56594] PHP Warning:  Illegal string offset 'price' in /home/qaz/Sites/test/www/application/ajax/ajax_group.php on line 50, referer: http://test.vovan/groups
 [Wed Mar 07 15:10:24.835021 2018] [:error] [pid 11940] [client 127.0.0.1:56594] PHP Warning:  Illegal string offset 'place' in /home/qaz/Sites/test/www/application/ajax/ajax_group.php on line 49, referer: http://test.vovan/groups
 [Wed Mar 07 15:10:24.835032 2018] [:error] [pid 11940] [client 127.0.0.1:56594] PHP Warning:  Illegal string offset 'price' in /home/qaz/Sites/test/www/application/ajax/ajax_group.php on line 50, referer: http://test.vovan/groups
+[Mon Mar 12 13:24:51.894878 2018] [:error] [pid 6611] [client 127.0.0.1:42730] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 240
+[Mon Mar 12 13:24:52.097927 2018] [:error] [pid 6611] [client 127.0.0.1:42730] PHP Strict Standards:  Non-static method Route::ErrorPage404() should not be called statically in /home/qaz/Sites/test/www/application/core/route.php on line 64
+[Mon Mar 12 13:24:52.098069 2018] [:error] [pid 6611] [client 127.0.0.1:42730] PHP Fatal error:  Class 'Controller_favicon.ico' not found in /home/qaz/Sites/test/www/application/core/route.php on line 68
+[Mon Mar 12 13:24:52.102372 2018] [:error] [pid 6611] [client 127.0.0.1:42730] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 240
+[Mon Mar 12 16:13:01.863312 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:13:01.864055 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:13:01.869177 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 246
+[Mon Mar 12 16:13:01.966143 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:13:01.966222 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Strict Standards:  Non-static method Route::ErrorPage404() should not be called statically in /home/qaz/Sites/test/www/application/core/route.php on line 81
+[Mon Mar 12 16:13:01.966251 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Fatal error:  Class 'Controller_favicon.ico' not found in /home/qaz/Sites/test/www/application/core/route.php on line 85
+[Mon Mar 12 16:13:01.983666 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:13:01.984160 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:13:01.984547 2018] [:error] [pid 1452] [client 127.0.0.1:40108] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 246
+[Mon Mar 12 16:14:41.034620 2018] [:error] [pid 1450] [client 127.0.0.1:40118] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:14:41.034816 2018] [:error] [pid 1450] [client 127.0.0.1:40118] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:14:41.036273 2018] [:error] [pid 1450] [client 127.0.0.1:40118] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 246
+[Mon Mar 12 16:18:12.817981 2018] [:error] [pid 1451] [client 127.0.0.1:40122] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 31
+[Mon Mar 12 16:18:12.818070 2018] [:error] [pid 1451] [client 127.0.0.1:40122] PHP Strict Standards:  Non-static method Route::ErrorPage404() should not be called statically in /home/qaz/Sites/test/www/application/core/route.php on line 81
+[Mon Mar 12 16:18:12.834566 2018] [:error] [pid 1451] [client 127.0.0.1:40122] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:18:12.834682 2018] [:error] [pid 1451] [client 127.0.0.1:40122] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:18:12.835046 2018] [:error] [pid 1451] [client 127.0.0.1:40122] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 246
+[Mon Mar 12 16:19:11.758632 2018] [:error] [pid 8267] [client 127.0.0.1:40124] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:19:11.758782 2018] [:error] [pid 8267] [client 127.0.0.1:40124] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:19:11.759217 2018] [:error] [pid 8267] [client 127.0.0.1:40124] PHP Fatal error:  Call to a member function fetch_all() on a non-object in /home/qaz/Sites/test/www/application/core/mysql.php on line 246
+[Mon Mar 12 16:21:23.583801 2018] [:error] [pid 8268] [client 127.0.0.1:40126] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:21:23.583967 2018] [:error] [pid 8268] [client 127.0.0.1:40126] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:27:32.627811 2018] [:error] [pid 1454] [client 127.0.0.1:40128] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:27:32.627966 2018] [:error] [pid 1454] [client 127.0.0.1:40128] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:27:32.631303 2018] [:error] [pid 1454] [client 127.0.0.1:40128] PHP Notice:  Undefined variable: m in /home/qaz/Sites/test/www/application/core/mysql.php on line 251
+[Mon Mar 12 16:28:21.146672 2018] [:error] [pid 1450] [client 127.0.0.1:40136] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:28:21.146807 2018] [:error] [pid 1450] [client 127.0.0.1:40136] PHP Notice:  Undefined variable: params in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 16:30:17.316371 2018] [:error] [pid 1451] [client 127.0.0.1:40140] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 21
+[Mon Mar 12 16:53:57.800200 2018] [:error] [pid 1453] [client 127.0.0.1:40830] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 23
+[Mon Mar 12 16:53:57.800273 2018] [:error] [pid 1453] [client 127.0.0.1:40830] PHP Warning:  explode() expects parameter 2 to be string, array given in /home/qaz/Sites/test/www/application/core/route.php on line 25
+[Mon Mar 12 16:59:10.676884 2018] [:error] [pid 1451] [client 127.0.0.1:40904] PHP Notice:  Undefined offset: 1 in /home/qaz/Sites/test/www/application/core/route.php on line 27
+[Mon Mar 12 16:59:10.676944 2018] [:error] [pid 1451] [client 127.0.0.1:40904] PHP Warning:  explode() expects parameter 2 to be string, array given in /home/qaz/Sites/test/www/application/core/route.php on line 33
+[Mon Mar 12 17:01:19.544375 2018] [:error] [pid 1454] [client 127.0.0.1:40938] PHP Warning:  explode() expects parameter 2 to be string, array given in /home/qaz/Sites/test/www/application/core/route.php on line 33
+[Mon Mar 12 17:01:38.744096 2018] [:error] [pid 1450] [client 127.0.0.1:40974] PHP Warning:  explode() expects parameter 2 to be string, array given in /home/qaz/Sites/test/www/application/core/route.php on line 33
+[Mon Mar 12 17:01:41.162919 2018] [:error] [pid 1450] [client 127.0.0.1:40974] PHP Warning:  explode() expects parameter 2 to be string, array given in /home/qaz/Sites/test/www/application/core/route.php on line 33, referer: http://test.vovan/404
+[Mon Mar 12 17:01:43.389699 2018] [:error] [pid 1450] [client 127.0.0.1:40974] PHP Warning:  explode() expects parameter 2 to be string, array given in /home/qaz/Sites/test/www/application/core/route.php on line 33, referer: http://test.vovan/
+[Mon Mar 12 17:03:26.981554 2018] [:error] [pid 1453] [client 127.0.0.1:40978] PHP Notice:  Array to string conversion in /home/qaz/Sites/test/www/application/core/route.php on line 32
+[Mon Mar 12 17:07:53.181375 2018] [:error] [pid 1453] [client 127.0.0.1:41050] PHP Strict Standards:  Non-static method Route::ErrorPage404() should not be called statically in /home/qaz/Sites/test/www/application/core/route.php on line 92
+[Mon Mar 12 17:07:53.181448 2018] [:error] [pid 1453] [client 127.0.0.1:41050] PHP Fatal error:  Class 'Controller_services;;l' not found in /home/qaz/Sites/test/www/application/core/route.php on line 96

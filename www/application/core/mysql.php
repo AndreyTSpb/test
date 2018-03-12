@@ -243,7 +243,8 @@ abstract class Mysql {
             $db = $this->db;
             $r = $db->query($sql);
             //echo $sql; exit;
-            $m = $r->fetch_all(3); //MYSQLI_BOTH
+            if($r) $m = $r->fetch_all(3); //MYSQLI_BOTH
+            else $m = FALSE;
         } catch (Exception $e) {
             echo 'Error: '.$e->getMessage();
             exit;
