@@ -304,13 +304,11 @@ abstract class Mysql {
         //print_r($this->dataResult[0]);
         $arrayForSet = array(); //массив для параметров которые меняем
         foreach ($arrayAllField as $field){
-            echo $field;
-            
             if(isset($this->{$field})){
                 if(strtoupper($field) != 'ID'){
                     $arrayForSet[] = $field . " = '" . $this->{$field} . "'";
                 }  
-                echo $whereId = $this->dataResult[0][0];
+                $whereId = $this->dataResult[0][0];
             }
         }
         /**
