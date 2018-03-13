@@ -380,3 +380,37 @@ form li{
     right: 15px;
     background-color: white;
 }
+/*Для сообщений */
+.messag_head >div{
+    background: #E8E8E8;
+    font-weight: normal;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.messag_head >div:first-child {
+    display: inline-block;
+    text-align: left;
+    color: #000;
+    max-width: 550px;
+    padding: 10px 20px 10px 20px;
+    margin: 30px 0px 0px 10px;
+}
+.messag_head >div:last-child {
+    display: inline-block;
+    font-weight: normal;
+    color: #999;
+    text-align: right;
+    max-width: 250px;
+    margin: 30px 5px 0px 0px;
+    padding: 10px 20px 10px 20px;
+}
+.body_message{
+    font-weight: normal;
+    text-align: left;
+    max-width: 760px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    margin: 0px 0px 0px 10px;
+    background: #f3f3f3;
+}
