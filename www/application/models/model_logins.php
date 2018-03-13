@@ -15,21 +15,21 @@ class Model_Logins extends Mysql{
      * Переменные
      */
     public $id;
-    public $login;
     public $phone;
-    public $pass;
+    public $password;
     public $active;
+    public $email;
     
     /**
      * Отправляем поля таблицы для выборки в родительский класс
      */
     public function fieldsTable() {
         return array(
-            'id'     => 'id',
-            'login'  => 'login',
-            'pass'    => 'pass',
-            'active' => 'active',
-            'phone'  => 'phone',
+            'id'         => 'id',
+            'phone'      => 'phone',
+            'password'   => 'password',
+            'active'     => 'active',
+            'email'      => 'email',
         );
     }
 }

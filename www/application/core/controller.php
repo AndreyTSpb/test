@@ -25,7 +25,7 @@ class Controller {
                  * if ($password==md5()) $where=""; else $where="and (password='".$password."')";
                  */ 
                 $select = array(
-                                "where" => "phone ='".$login."' AND pass = '".$password."'",
+                                "where" => "phone ='".$login."' AND password = '".$password."'",
                             );
                 $query = new Model_Logins($select);
                 $row = $query->getOneRow();
@@ -44,7 +44,7 @@ class Controller {
                         setcookie('id_user', $row['id'], time()+864000, '/');
                         setcookie('phone', $row['phone'], time()+864000, '/');
                         setcookie('email', $row['email'], time()+864000, '/');
-                        setcookie('password', $row['pass'], time()+864000, '/');
+                        setcookie('password', $row['password'], time()+864000, '/');
                         $data= "active";
                         return $data;
                     }

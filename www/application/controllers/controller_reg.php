@@ -22,8 +22,8 @@ class Controller_Reg extends Controller{
                 }else{
                     $data['error_reg'] = $login." ".$password;
                     $query = new Model_Logins();
-                    $query->login = $login;
-                    $query->pass = md5($password);
+                    $query->phone = $login;
+                    $query->password = md5($password);
                     $id_user = $query->save();
                     if(empty($id_user)){
                         $data['error_reg'] = "Запись не добавленна!!!";

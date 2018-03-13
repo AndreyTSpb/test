@@ -48,7 +48,6 @@ abstract class Mysql {
          * если вернется строка, 
          * то запрос выполнять
          */
-        //print_r($select); 
         if(!empty($select)){
             $sql = $this->_getSelect($select);
             if($sql){
@@ -300,13 +299,18 @@ abstract class Mysql {
          * Проверка есть ли в данной таблице поле ID 
          */
         $arrayAllField = array_keys($this->fieldsTable()); // масив с полями таблицы
+        //print_r($arrayAllField);
+        //echo "<p>";
+        //print_r($this->dataResult[0]);
         $arrayForSet = array(); //массив для параметров которые меняем
         foreach ($arrayAllField as $field){
-            if(isset($this->$field)){
+            echo $field;
+            
+            if(isset($this->{$field})){
                 if(strtoupper($field) != 'ID'){
-                    $arrayForSet[] = $field . " = '" . $this->$field . "'";
+                    $arrayForSet[] = $field . " = '" . $this->{$field} . "'";
                 }  
-                $whereId = $this->dataResult[0][0];
+                echo $whereId = $this->dataResult[0][0];
             }
         }
         /**
