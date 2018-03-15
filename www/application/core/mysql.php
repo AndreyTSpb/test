@@ -92,18 +92,17 @@ abstract class Mysql {
         return $m;
     }
     /**
-     * Извлеч из выборки dateResult одну запись
+     * Извлеч из выборки dateResult одну запись,
+     * И заполнить значениями переменные которые отвечают за поля таблицы.
+     * $this->{$key} = $val;
+     * $this->{$key} - значение ключа использовать как переменную.
      */
    public function fetchOne() {
         
         if(!isset($this->dataResult) OR empty($this->dataResult)) return FALSE;
         foreach ($this->dataResult[0] as $key => $val) {
             $this->{$key} = $val;
-            //echo $key;
         }
-        //echo $this->activcode;echo" <br>";
-        //echo $this->name;echo" <br>";
-        //print_r($this->dataResult[0]); exit;
         return true;
     }
     /**

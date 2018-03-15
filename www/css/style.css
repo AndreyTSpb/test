@@ -452,3 +452,43 @@ form li{
 button:hover{
     cursor: pointer;
 }
+
+/**
+*BLOCK MY GROUPS*
+*/
+.block_price_month{
+    width: 100%;
+}
+.block_pay_month_head{
+    width: 90px;
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+}
+.block_pay_month{
+    width: 80px;
+    display: inline-block;
+    text-align: center;
+    /*font-weight: bold;*/
+    padding: 1px 2px;
+    margin: 4px 5px;
+    background-color: white;
+    border: 1px solid #f8f8f8;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #D8D8D8;
+    -webkit-box-shadow: 0 0 4px #D8D8D8;
+    
+}
+.bay_mont{
+    display: block;
+}
+.bay_mont input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bay_mont input[name=for_bill]{
+    width: 50px;
+}
+.bay_mont input[name=cost_bill]{
+    width: 100px;
+}

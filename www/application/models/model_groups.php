@@ -41,5 +41,19 @@ class Model_Groups extends Mysql{
             'price'        => 'price',
         );
     }
+    /**
+     * Определяем имя
+     */
+    public function name(){
+        $this->fetchOne();
+        return $this->code;
+    }
+    /**
+     * Макс кол юзеров
+     */
+    public function max_users(){
+        $this->fetchOne();
+        return $this->max_users;
+    }
 }
 
