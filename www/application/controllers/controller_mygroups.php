@@ -27,6 +27,27 @@ class controller_mygroups {
             /**
              * Обработка ответа от формы 
              */
+            if(isset($_POST['create_bill'])){
+                
+                $kol_month = (int)$_POST['for_bill'];
+                $cost = $_POST['cost_bill'];
+                $id_abon = (int)$_POST['id_abon'];
+                
+                $objCeateBill = new Model_CreateBill();
+                
+                $objCeateBill->id_abon = $id_abon;
+                $objCeateBill->kol_month = $kol_month;
+                $objCeateBill->cost = $cost;
+                $objCeateBill->id_user = (int)$_COOKIE['id_user'];
+                
+                $bill = $objCeateBill->createBillStandart();
+                if($bill){
+                    header("Location: /bill");
+                    exit;
+                }else{
+                    $data['error'] = "Что-то пошло не так!!!";
+                }
+            }
             $data['mygroups'] = $this->model->get_data();
             /*создания страницы*/
             $this->view->generate('mygroups_view.php', 'template_view.php', $data);

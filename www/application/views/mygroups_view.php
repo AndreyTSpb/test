@@ -22,6 +22,7 @@ foreach ($mygroups as $id_stud => $vals){
                  $price_to_group = $arr_group['price'];
                  $pay_month ='';
                  if(!empty($price_to_group) AND is_array($price_to_group)){
+                     $kol=1;
                      for($i=1; $i<10; $i++){
                          $objMonth = new Model_Dates();
                          $month = $objMonth->monthNameEduYear($i);
@@ -29,12 +30,23 @@ foreach ($mygroups as $id_stud => $vals){
                          $pr = $price_to_group[$a];
                          $p = $arr_group[$a];
                          $style = '';
-                         if($p == 0){$style = '';}
+                         $id_input = '';
+                         
+                         if($p == 0){$style = ''; $id_input = "id='p".$kol++."_".$id_abon."'";}
                          if($p == 1){$style = "style ='background-color:#00CC00;'"; $pr = $month; $month ='';}
                          if($p == 2){$style = "style ='background-color:#FE2701;'"; $pr = $month; $month ='';}
                          if($p == 5){$style = "style ='background-color:#FFFF66;'"; $pr = $month; $month ='';}
-                         $pay_month .= "<div class='block_pay_month_head'>".$month."<div class='block_pay_month' ".$style." id='p".$i."_".$id_abon."'>".$pr."</div></div>";
+                         $pay_month .= "<div class='block_pay_month_head'>".$month.""
+                                            . "<div class='block_pay_month' ".$style." ".$id_input.">".$pr."</div>"
+                                     . "</div>";
                      }
+                     $first_pay_sum = '';
+                     $b = 9 - $kol +2;
+                     $z = "p".$b;
+                     if(!empty($b)){
+                         $first_pay_sum = $price_to_group[$z];
+                     }
+                     
                  }
                  $abons .= "<div class='abon'>
                                 <div class = 'head_abon'>
@@ -53,7 +65,8 @@ foreach ($mygroups as $id_stud => $vals){
                                         ."<div class = 'bay_mont'>
                                             <form method='post'>
                                                 <label>Кол-во месяцев к оплате: <input type='text' name = 'for_bill' data-id='".$id_abon."' id='amount-".$id_abon."' value='1'></label>
-                                                <label>К оплате: <input type='text' name='cost_bill' id='cost_".$id_abon."' value=''></label>
+                                                <label>К оплате: <input type='text' name='cost_bill' id='cost_".$id_abon."' value='".$first_pay_sum."' readonly></label>
+                                                <input type='hidden' name = 'id_abon' value='".$id_abon."'>
                                                 <input type='submit' name='create_bill' value='Купить'>
                                             </form>
                                           </div>
@@ -86,17 +99,13 @@ foreach ($mygroups as $id_stud => $vals){
     $( "input[name=for_bill]" ).keyup(function() {
         var kol_month = $(this).val();
         var id_abon = $(this).data('id');
-        var p1 = Number($("#p1_"+id_abon).text());
-        var p2 = Number($("#p2_"+id_abon).text());
-        var p3 = Number($("#p3_"+id_abon).text());
-        var p4 = Number($("#p4_"+id_abon).text());
-        var p5 = Number($("#p5_"+id_abon).text());
-        var p6 = Number($("#p6_"+id_abon).text());
-        var p7 = Number($("#p7_"+id_abon).text());
-        var p8 = Number($("#p8_"+id_abon).text());
-        var p9 = Number($("#p9_"+id_abon).text());
-        $("#cost_"+id_abon).val(kol_month);
-        alert(kol_month +'='+ id_abon+'='+p1+'='+p2+'='+p3+'='+p4+'='+p5+'='+p6+'='+p7+'='+p8+'='+p9);
+        var t = new Number(0);
+        var pay = new Number(0);
+        for($i=1; $i<=kol_month; $i++){
+            t = Number($("#p"+$i+"_"+id_abon).text());
+            pay = +pay + +t;
+        }
+        $("#cost_"+id_abon).val(pay);
        });
 </script>
 

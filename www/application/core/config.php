@@ -13,6 +13,8 @@ define('DB_USER', 'root');/*Логин*/
 define('DB_PASS', '');/*Пароль*/
 define('DB_HOST', 'localhost');/*Сервер*/
 define('DB_NAME', 'mvc');/*Имя БД*/
+define('STR_YEAR', '2017');
+define('END_YEAR', '2018');
 /*Строка подключения*/
 $link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if($link->connect_errno){
