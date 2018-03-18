@@ -11,11 +11,13 @@ function selectRaion($select=NULL){
         //print_r($raions);
 	$rez="<select name=\"raion\" value=\"\">";
 	$rez.="<option value='0'></option>";
-	foreach ($raions as $value)
-	{
-                if ($select==$value['id'])  {$selected="selected"; }else{ $selected="";}
-		$rez.="<option ".$selected." value='".$value['id']."'>".$value['name']."</option>";
-	}
+        if(!empty($raions)){
+            foreach ($raions as $value)
+            {
+                    if ($select==$value['id'])  {$selected="selected"; }else{ $selected="";}
+                    $rez.="<option ".$selected." value='".$value['id']."'>".$value['name']."</option>";
+            }
+        }
 	$rez.="</select>";
     return $rez;
 }

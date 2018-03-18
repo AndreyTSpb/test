@@ -11,7 +11,7 @@
  *
  * @author qaz
  */
-class controller_mygroups {
+class controller_mygroups extends Controller{
     function __construct()
 	{
 		$this->model = new Model_MyGroups();
@@ -42,7 +42,7 @@ class controller_mygroups {
                 
                 $bill = $objCeateBill->createBillStandart();
                 if($bill){
-                    header("Location: /bill");
+                    header("Location: /mybills");
                     exit;
                 }else{
                     $data['error'] = "Что-то пошло не так!!!";
