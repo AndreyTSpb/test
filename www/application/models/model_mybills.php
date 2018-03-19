@@ -14,6 +14,7 @@
 class Model_Mybills extends Model{
     public $id_user;
     public function get_data(){
+        $name_block = array("", "Январь", "Февраль", "Март", "Апрель", "Май", "Июль", "Июнь", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");
         /*Ожидают оплату*/
         $q = array(
                         "where" => "id_user = '".$this->id_user."' AND status IN ('0')",
@@ -42,6 +43,7 @@ class Model_Mybills extends Model{
                         $month = trim($item ,'p');
                         $months .=trim($objDate->monthNameEduYear($month))." ";
                     }
+                    $month .="<span style=\"color:green;\">" . date("d.m", $val_2) . " </span>";
                 }
                 $dt = date("d.m.Y",$val['dt_pay']);
                 $wait_pay[] = array(
@@ -84,6 +86,16 @@ class Model_Mybills extends Model{
                         $months .=trim($objDate->monthNameEduYear($month))." ";
                     }
                 }
+                if($val['status'] == 1){
+                    $dt = "Бронь подтверждена<br>" .date("d.m.Y H:i",$val['dt_ext']);
+                }elseif ($val['status'] == 5) {
+                    $dt = date("d.m.Y H:i",$val['dt_ext']);
+                }
+                if($val['price'] == 0){
+                    $status = "Моя группа<br>Подтверждено!!!";
+                }else{
+                    $status = "Моя группа<br>Оплачено!!!";
+                }
                 $dt = date("d.m.Y",$val['dt_pay']);
                 $true[] = array(
                     "id_bill" => $val['id'],
@@ -91,11 +103,12 @@ class Model_Mybills extends Model{
                     "months"  => $months,
                     "price"   => $val['price'],
                     "dt"      => $dt,
-                    "status"  => $val['status']
+                    "status"  => $status
                 );
             }
         }
         $mas['true'] = $true;
+        /*******************************************/
         /*Тут просроченные счета*/
         $q1 = array(
                         "where" => "id_user = '".$this->id_user."' AND status IN ('2','3')",
@@ -125,14 +138,21 @@ class Model_Mybills extends Model{
                         $months .=trim($objDate->monthNameEduYear($month))." ";
                     }
                 }
-                $dt = date("d.m.Y",$val['dt_ext']);
+                if($val['status'] == 2){
+                    $dt = "Был актуален до<br>" .date("d.m.Y H:i",$val['dt_ext']);
+                    $status = "Счет просрочен!!!";
+                }elseif ($val['status'] == 3) {
+                    $dt = date("d.m.Y H:i",$val['dt_ext']);
+                    $status = "Отказ от занятий в этой группе!!!";
+                }
+                
                 $false[] = array(
                     "id_bill" => $val['id'],
                     "code"    => $code,
                     "months"  => $months,
                     "price"   => $val['price'],
                     "dt"      => $dt,
-                    "status"  => $val['status']
+                    "status"  => $status
                 );
             }
         }

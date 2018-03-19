@@ -491,4 +491,51 @@ button:hover{
 }
 .bay_mont input[name=cost_bill]{
     width: 100px;
+}/*Страница со счетами*/
+.bills_block {
+	width:100%;
+	height:auto;
+	-moz-box-sizing: border-box; /* Для Firefox */
+	-webkit-box-sizing: border-box; /* Для Safari и Chrome */
+	box-sizing: border-box; /* Для IE и Opera */
+	text-align: left;
+}
+.bills_balance {padding:5px; color:#bd3299;  width:auto; font-size:20px; font-weight:bold; }
+.bills_number {padding:5px; color:#999;  width:35px;}
+.bills_about {padding:5px;  max-width:400px; width: 100%; font-size:14px; line-height:23px;}
+.bills_date {padding:5px;  width:100px; font-size:12px; color:#0e8690;  line-height:20px;}
+.bills_cost {padding:5px; width:100px; font-size:18px; text-align:right;font-weight:bold; color:#bd3299; /* Поля */  -moz-box-sizing: border-box;  -webkit-box-sizing: border-box;   box-sizing: border-box;}
+.bills_last {padding:5px;  max-width:200px; width: 100%; font-size:14px; line-height:16px; color:#C9F; }
+.bills_comment {padding:5px;  max-width:200px; width: 100%; font-size:14px; line-height:16px; color:#666;}
+.bills_price_ok { background: url(../images/price_ok.png) left center no-repeat;  padding:5px 5px 5px 50px; color: #65cc5a; font-weight:bold; font-size:18px;   }
+.bills_button {position:relative;
+
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+        
+	/* Поля */  -moz-box-sizing: border-box; /* Для Firefox */   -webkit-box-sizing: border-box; /* Для Safari и Chrome */   box-sizing: border-box; /* Для IE и Opera */}
+
+.bills_button:hover {
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+	box-shadow:         0px 0px 20px 0px rgba(0, 0, 0, 0.4);}
+.bill_comment_all {		position:relative;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	/*display: inline;
+        /*display: inline;*/ 
+        width:auto; padding-bottom:0px;  line-height:15px; width:auto; margin-left:20px; }
+.block{
+	text-align: left;
+	position: relative;
+	display: -moz-inline-stack;
+   	display: inline-block;
+   	vertical-align: top;
+   	zoom: 1;
+   	/*display: inline;
+	//display: inline;*/
 }
