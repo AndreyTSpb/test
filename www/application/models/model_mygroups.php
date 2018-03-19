@@ -34,15 +34,18 @@ class Model_MyGroups extends Model {
                     $id_abon = '';
                     $code = '';
                     $cost = '';
+                    $status = '';
                     if(!empty($masAbon)){
                         foreach($masAbon as $item){
                             $id_group = $item['id_group'];
                             $id_abon  = $item['id'];
+                            $status = $item['status'];
                             $q1 = array(
                                 "where" => "id = '".$id_group."'",
                             );
                             $objGroup = new Model_Groups($q1);
                             $code = $objGroup->name();
+                            $type = $objGroup->id_type;
                             /**
                              * Получайм прайс для этого абонемента
                              */
@@ -70,11 +73,21 @@ class Model_MyGroups extends Model {
                             }else{
                                 $price = '';
                             }
+                            /**
+                             * Выясняем естьли не оплаченные счета
+                             */
+                            $q3 = array(
+                                "where" => "aboniment ='".$id_abon."/abon' AND status = '0' "
+                            );
+                            $objBill = new Model_Bill($q3);
+                            $no_pay = $objBill->num_row;
+                            
                             $groups[] = array(
                                 'id_abon'  => $id_abon,
                                 'id_group' => $id_group,
                                 'code'     => $code,
                                 'cost'     => $cost,
+                                'status'   => $status,
                                 "p1"       => $item['p1'],
                                 "p2"       => $item['p2'],
                                 "p3"       => $item['p3'],
@@ -84,7 +97,9 @@ class Model_MyGroups extends Model {
                                 "p7"       => $item['p7'],
                                 "p8"       => $item['p8'],
                                 "p9"       => $item['p9'],
-                                'price'    => $price
+                                'price'    => $price,
+                                'no_pay'   => $no_pay,
+                                'type'     => $type
                             );
                         }
                     }

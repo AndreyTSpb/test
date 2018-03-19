@@ -10,6 +10,7 @@
         <li class="first "><a href="/groupsale">Группы</a></li>
         <li><a href="/lk">ЛК</a></li>
         <li><a href="/messag">Сообщения</a></li>
+        <li><a href="/mygroups">Мои группы</a></li>
         <li><a href="/mybills">Счета</a></li>
         <li class="last"><a href="/contacts">Контакты</a></li>
     </ul>

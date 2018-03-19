@@ -5,13 +5,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//print_r($data);
+print_r($data);
 if(!isset($error)) $error='';
 if(!isset($mybill)) {
-    $true = ''; $false = '';
+    $wait_pay = ''; $true = ''; $false = '';
 }else{
-    if(isset($mybill['true'])){
-        print_r($mybill['true']);
+    if(isset($mybill['true']) AND !empty($mybill['true'])){
+        $true ='';
         foreach ($mybill['true'] as $bill){
             $true .="<div>"
                         ."<div>"
@@ -22,6 +22,23 @@ if(!isset($mybill)) {
                     . "</div>";
         }
         $true .="<hr>";
+    }else{
+        $true ='';
+    }
+    if(isset($mybill['true']) AND !empty($mybill['true'])){
+        $true ='';
+        foreach ($mybill['true'] as $bill){
+            $true .="<div>"
+                        ."<div>"
+                            . "<div class=\"bills_number block\">#".$bill['id_bill']."</div>"
+                            . "<div class=\"bills_about block\">" . $bill['code'] . " ".$bill['months']."</div>"
+                            . "<div class=\"bills_cost block\">" . number_format($bill['price'], 0, '', ' ') . " <b class=\"rub\">c</b></div>"
+                        . "</div>"
+                    . "</div>";
+        }
+        $true .="<hr>";
+    }else{
+        $true ='';
     }
 }
 ?>

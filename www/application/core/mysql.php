@@ -16,7 +16,9 @@ abstract class Mysql {
     protected $db; //Сюда отправляем подключение объект к БД
     protected $table; //Таблица
     private $dataResult; // сюда результат выборки
-    
+    public $num_row; //Сколько вернулось строк
+
+
     public function fieldsTable() {
         /**
          * массив с полями таблицы
@@ -240,7 +242,8 @@ abstract class Mysql {
         try{
             $db = $this->db;
             $r = $db->query($sql);
-            //echo $sql; exit;
+            //echo $sql;
+            $this->num_row = $r->num_rows; //echo "<p>";
             if($r) $m = $r->fetch_all(3); //MYSQLI_BOTH
             else $m = FALSE;
         } catch (Exception $e) {
@@ -377,4 +380,7 @@ abstract class Mysql {
         }
         return $r;
     }
+    /**
+     * Количество строк в 
+     */
 }
