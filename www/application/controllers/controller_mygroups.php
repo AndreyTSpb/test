@@ -30,15 +30,15 @@ class controller_mygroups extends Controller{
             if(isset($_POST['create_bill'])){
                 
                 $kol_month = (int)$_POST['for_bill'];
-                $cost = $_POST['cost_bill'];
+                $price = $_POST['cost_bill'];
                 $id_abon = (int)$_POST['id_abon'];
                 
                 $objCeateBill = new Model_CreateBill();
                 
                 $objCeateBill->id_abon = $id_abon;
                 $objCeateBill->kol_month = $kol_month;
-                $objCeateBill->cost = $cost;
-                $objCeateBill->id_user = (int)$_COOKIE['id_user'];
+                $objCeateBill->cost = $price;
+                $objCeateBill->id_user = $this->model->id_user;
                 
                 $bill = $objCeateBill->createBillStandart();
                 if($bill){

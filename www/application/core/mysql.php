@@ -51,7 +51,7 @@ abstract class Mysql {
          * то запрос выполнять
          */
         if(!empty($select)){
-            echo $sql = $this->_getSelect($select);
+            $sql = $this->_getSelect($select);
             if($sql){
                 $this->dataResult = $this->_getResult("SELECT * FROM " .$this->table . $sql);
             } 
@@ -151,15 +151,16 @@ abstract class Mysql {
                 $arrayData[] = $this->field;
             }
         }
+        /*
         echo $forQueryFields = trim(implode(', ', $arraySetFields));
         echo $rangePlace = array_fill(0 , count($arraySetFields), '?');
         echo $forQueryPlace = trim(implode(', ', $rangePlace));
-        
+        */
         try{
             /**
              * Делаем через подготовленый запрос
              */
-            echo $sql = "INSERT INTO ".$this->table."(".$forQueryFields.") VALUES (".$forQueryPlace.");";
+            $sql = "INSERT INTO ".$this->table."(".$forQueryFields.") VALUES (".$forQueryPlace.");";
             $db = $this->db;
             $smtp = $db->stmt_init();
             if ($smtp->errno) { 

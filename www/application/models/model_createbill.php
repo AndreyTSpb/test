@@ -14,7 +14,7 @@ class Model_CreateBill {
     public $id_user;
     public $id_abon;
     public $kol_month;
-    public $cost;
+    public $price;
     
     /**
      * Создаем обычный счет
@@ -71,7 +71,7 @@ class Model_CreateBill {
         $objBill->aboniment = $this->id_abon.'/abon';
         $objBill->dt_ext = $dt_ext;
         $objBill->dt_pay = $dt_start;
-        $objBill->price = $this->cost;
+        $objBill->price = $this->price;
         $objBill->month = $months;
         $objBill->block = $block;
         $result = $objBill->save(); // создаем запись

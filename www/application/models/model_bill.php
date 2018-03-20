@@ -37,6 +37,7 @@ class Model_Bill extends Mysql{
             'dt_pay'     => 'dt_pay',
             'status'     => 'status',
             'month'      => 'month',
+            'price'      => 'price',
             'block'      => 'block',
         );
     }

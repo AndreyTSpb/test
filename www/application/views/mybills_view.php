@@ -5,18 +5,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-print_r($data);
+//print_r($data);
 if(!isset($error)) $error='';
 
 if(!isset($mybill)) {
-    $wait_pay = ''; $true = ''; $false = ''; $balans = 0;
+    $wait_pay = ''; $true = ''; $false = ''; $balans = 0; $view_balans = '';
 }else{
     /**
     * Проверка есть ли что на балансе,
     * Вывести сумму на экран.
     */
     if(isset($mybill['balans']) AND !empty($mybill['balans'])){
-        
+        $balans = $mybill['balans'];
+        $view_balans = "<div class='balans'>Ваш баланс: ".$balans."</div>";
     }
     /**
      * Счета которые требуется оплатить
@@ -27,12 +28,14 @@ if(!isset($mybill)) {
          */
         $true ='';
         foreach ($mybill['wait_pay'] as $bill){
+            
             $wait_pay .="<div class='bills_block'>"
                         ."<div>"
                             . "<div class=\"bills_number block\">#".$bill['id_bill']."</div>"
                             . "<div class=\"bills_about block\">" . $bill['code'] . " ".$bill['months']."</div>"
                             . "<div class=\"bills_cost block\">" . number_format($bill['price'], 0, '', ' ') . " <b class=\"rub\">c</b></div>"
                         . "</div>"
+                        ."<div><div class=\"bill_link clear_booking\" data-id='".$bill['id_bill']."' id=\"clear_booking_".$bill['id_bill']."\">Снять счет</div></div>"
                     . "</div>";
         }
         $wait_pay .="<hr>";
@@ -85,9 +88,25 @@ if(!isset($mybill)) {
     <h1>Мои Счета</h1>
     <div class = 'error'>
         <div style = 'background-color: red;'><?=$error;?></div>
+        <?=$view_balans;?>
         <?=$wait_pay;?>
         <?=$true;?>
         <?=$false;?>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.clear_booking').click(function(){
+            var id_bill = $(this).data('id');
+            //alert(id_bill);
+            $.ajax({
+                type: 'POST', url: 'ajax/cron_bill.php', 
+                data: 'id=id_bill',
+                // data: 'id=".$id."',
+                beforeSend: function(){ $('.cursor_wait').show(); }, 
+                success: function(html){ $('.cursor_wait').hide(); location.pathname='/mybills';}
+            });
+        });
+    });
+</script>
 

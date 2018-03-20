@@ -539,3 +539,16 @@ button:hover{
    	/*display: inline;
 	//display: inline;*/
 }
+.bill_link{
+    position: relative;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    width: auto;
+    padding-bottom: 0px;
+    border-bottom: 1px dotted #bd3299;
+    color: #bd3299;
+    cursor: pointer;
+    line-height: 15px;
+}
