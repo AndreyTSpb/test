@@ -51,7 +51,7 @@ abstract class Mysql {
          * то запрос выполнять
          */
         if(!empty($select)){
-            $sql = $this->_getSelect($select);
+            echo $sql = $this->_getSelect($select);
             if($sql){
                 $this->dataResult = $this->_getResult("SELECT * FROM " .$this->table . $sql);
             } 
@@ -243,7 +243,7 @@ abstract class Mysql {
             $db = $this->db;
             $r = $db->query($sql);
             //echo $sql;
-            $this->num_row = $r->num_rows; //echo "<p>";
+            if(!empty($r->num_rows)) $this->num_row = $r->num_rows; //echo "<p>";
             if($r) $m = $r->fetch_all(3); //MYSQLI_BOTH
             else $m = FALSE;
         } catch (Exception $e) {
@@ -252,6 +252,13 @@ abstract class Mysql {
         }
         return $m;
     }
+    /**
+     * Показать результат
+     */
+    public function show_result(){
+        return $this->dataResult;
+    }
+
     /**
      * удаление из БД по условию
      */

@@ -7,13 +7,24 @@
  */
 print_r($data);
 if(!isset($error)) $error='';
+
 if(!isset($mybill)) {
-    $wait_pay = ''; $true = ''; $false = '';
+    $wait_pay = ''; $true = ''; $false = ''; $balans = 0;
 }else{
+    /**
+    * Проверка есть ли что на балансе,
+    * Вывести сумму на экран.
+    */
+    if(isset($mybill['balans']) AND !empty($mybill['balans'])){
+        
+    }
     /**
      * Счета которые требуется оплатить
      */
     if(isset($mybill['wait_pay']) AND !empty($mybill['wait_pay'])){
+        /**
+         * Проверка естьли что на балансе
+         */
         $true ='';
         foreach ($mybill['wait_pay'] as $bill){
             $wait_pay .="<div class='bills_block'>"
