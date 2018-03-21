@@ -43,12 +43,12 @@ if(isset($id_group)){
                 <div class="price_hold">
                     <p>'.$price.'</p>
                 </div>
-                <form method = "post" active="">
-                    <input type="hidden" name = "subject"   value = "'.$id_subject.'">
-                    <input type="hidden" name = "id_stud"   value = "'.$id_stud.'">
-                    <input type="hidden" name = "id_user"   value = "'.$id_user.'">
-                    <input type="hidden" name = "id_group"  value = "'.$id_group.'">
-                    <input type="submit" name = "bay_group" value = "Купить">
+                <form method = "post" action="../application/post/post_create_abon.php">
+                    <input type="hidden" name = "id_subject"   value = "'.$id_subject.'">
+                    <input type="hidden" name = "id_stud"      value = "'.$id_stud.'">
+                    <input type="hidden" name = "id_user"      value = "'.$id_user.'">
+                    <input type="hidden" name = "id_group"     value = "'.$id_group.'">
+                    <input type="submit" name = "bay_group"    value = "Купить">
                 </form>
             </div>';
         }
