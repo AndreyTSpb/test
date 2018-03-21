@@ -17,7 +17,6 @@ if(!isset($mybill)) {
     */
     if(isset($mybill['balans']) AND !empty($mybill['balans'])){
         $balans = $mybill['balans'];
-        $view_balans = "<div class='balans'>Ваш баланс: ".$balans."</div>";
     }
     /**
      * Счета которые требуется оплатить
@@ -28,12 +27,20 @@ if(!isset($mybill)) {
          */
         $true ='';
         foreach ($mybill['wait_pay'] as $bill){
+            if($balans>0){
+                $price_now = $bill['price'] - $balans; // сумма к оплате за вычетом баланса
+                $balans = $balans - $bill['price']; // остаток по балансу за вычетом цены счета, вез учета баланса.
+                if ($price_now < 0) { $price_now = 0;} // если сумма счета вышла меньше нуля, то приравниваем сумму заказа к нулю.
+            }else{
+                $price_now = $bill['price'];
+            }
+            if ($balans < 0) $balans = 0; // если баланс отрицателен. приравниваем его к нулю.
             
             $wait_pay .="<div class='bills_block'>"
                         ."<div>"
                             . "<div class=\"bills_number block\">#".$bill['id_bill']."</div>"
                             . "<div class=\"bills_about block\">" . $bill['code'] . " ".$bill['months']."</div>"
-                            . "<div class=\"bills_cost block\">" . number_format($bill['price'], 0, '', ' ') . " <b class=\"rub\">c</b></div>"
+                            . "<div class=\"bills_cost block\">" . number_format($price_now, 0, '', ' ') . " <b class=\"rub\">c</b></div>"
                         . "</div>"
                         ."<div><div class=\"bill_link clear_booking\" data-id='".$bill['id_bill']."' id=\"clear_booking_".$bill['id_bill']."\">Снять счет</div></div>"
                     . "</div>";
@@ -82,6 +89,7 @@ if(!isset($mybill)) {
     }else{
         $false ='';
     }
+    $view_balans = "<div class='balans'>Ваш баланс: ".$balans."</div>";
 }
 ?>
 <div class='content'>
@@ -100,8 +108,9 @@ if(!isset($mybill)) {
             var id_bill = $(this).data('id');
             //alert(id_bill);
             $.ajax({
-                type: 'POST', url: 'ajax/cron_bill.php', 
-                data: 'id=id_bill',
+                type: 'POST', 
+                url: '../application/ajax/cron_bill.php', 
+                data: 'id='+id_bill,
                 // data: 'id=".$id."',
                 beforeSend: function(){ $('.cursor_wait').show(); }, 
                 success: function(html){ $('.cursor_wait').hide(); location.pathname='/mybills';}

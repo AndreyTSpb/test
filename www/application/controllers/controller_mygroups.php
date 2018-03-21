@@ -37,7 +37,7 @@ class controller_mygroups extends Controller{
                 
                 $objCeateBill->id_abon = $id_abon;
                 $objCeateBill->kol_month = $kol_month;
-                $objCeateBill->cost = $price;
+                $objCeateBill->price = $price;
                 $objCeateBill->id_user = $this->model->id_user;
                 
                 $bill = $objCeateBill->createBillStandart();

@@ -4,6 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//print_r($data);
 $day = array(
     '1'=>'Пн',
     "2"=>'Вт',
@@ -41,6 +42,9 @@ $day = array(
     }
 ?>
 <div class="sale">
+    <div id="id_user"><?=$user;?></div>
+    <div id="id_stud"><?=$stud;?></div>
+    <div id="id_subject"><?=$id_subject;?></div>
     <div class="for_block_price"></div>
     <?=$block_sale;?>
 </div>
@@ -61,7 +65,7 @@ $day = array(
                 type: 'POST',
                 url: '../application/ajax/ajax_group.php',
                 //data: 'id_group = ' + $(this).val(),
-                data: 'id='+$(this).val(),
+                data: 'id='+$(this).val()+'&id_user='+$('#id_user').html()+'&id_stud='+$('#id_stud').html()+'&subject='+$('#id_subject').html(),
                 success: function (rere){
                     $('.for_block_price').html(rere);
                 }

@@ -17,6 +17,7 @@ abstract class Mysql {
     protected $table; //Таблица
     private $dataResult; // сюда результат выборки
     public $num_row; //Сколько вернулось строк
+    public $id_row;
 
 
     public function fieldsTable() {
