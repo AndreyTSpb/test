@@ -1,6 +1,6 @@
 <?php
 
-//print_r($data);
+print_r($data);
 if(!isset($error)) $error='';
 $mygroup = '';
 foreach ($mygroups as $id_stud => $vals){
@@ -25,8 +25,13 @@ foreach ($mygroups as $id_stud => $vals){
                  /*Стоимость по месяцам*/
                  $price_to_group = $arr_group['price'];
                  $pay_month ='';
-                 if($type<4){
+                 $bay = '';
+                 $title_head = '';
+                 $title_group = '';
+                 if($type<4){  
+                    $title_group = "<h3>Запись №: " . $id_abon . ". В группе: " . $code . " </h3>";
                     if(!empty($price_to_group) AND is_array($price_to_group)){
+                        $title_head = "Стоимость за весь год: ".$cost;
                         $kol=0;
                         for($i=1; $i<10; $i++){
                             $objMonth = new Model_Dates();
@@ -55,7 +60,6 @@ foreach ($mygroups as $id_stud => $vals){
                     /**
                      * Кнопка создания счета
                      */
-                    $bay = '';
                     if(empty($no_pay) && ($status == '1' OR $status == '5' OR $status == '0')){
                         $bay = "<form method='post'>
                                        <label>Кол-во месяцев к оплате: <input type='text' name = 'for_bill' data-id='".$id_abon."' id='amount-".$id_abon."' value='1'></label>
@@ -70,16 +74,22 @@ foreach ($mygroups as $id_stud => $vals){
                     }elseif(empty ($cost)){
                         $bay = "<div class='bills_balance'>Оплата по этой группе будет возможна в позже!!!</div>";
                     }
-                 }
+                }elseif ($type == 4 OR $type == 6) {
+                    $title_group = "<h3>Запись №: " . $id_abon . ". В группе: " . $code . " </h3>";
+                    $title_head = "Цена за курс: ".$cost;
+                    $bay = "<form method='post'>
+                                       <input type='hidden' name = 'id_abon' value='".$id_abon."'>
+                                       <input type='submit' name='create_bill' value='Купить'>
+                                   </form>";
+                }elseif($type == 5){
+                    $title_group = "<h3>Запись №: " . $id_abon . ". В начальной группе: " . $code . " </h3>";    
+                    $pay_month = "<h3><span style=\"position: relative; right:5px;\"> Cтоимость занятий в кружке составляет 0 р + оплата в школу по квитанциям, договор будет прилагаться</span></h3>
+					<p style='font-weight: bold; color:#b50e2f;'>Действителен до: " . date("d.m.Y H:i", time()) . ".</p>";
+                }
                  $abons .= "<div class='abon'>
                                 <div class = 'head_abon'>
-                                    <span>№".
-                                        $id_abon
-                                    ."</span> 
-                                    <span>".
-                                        $code
-                                    ."</span>
-                                    <span>Цена за год: ".$cost."</span>
+                                    <span>".$title_group."</span>
+                                    <span>".$title_head."</span>
                                 </div><hr>
                                 <div class='abon_info'>
                                     44545

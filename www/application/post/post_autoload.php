@@ -7,10 +7,10 @@ spl_autoload_register(function ($class_name) {
     $expArr = explode('_', $class_name);
     //print_r($expArr);
     if(empty($expArr[1]) or empty($expArr)){
-        $folder = '../core';
+        $folder = '../core/';
     }else{
-        $folder = '../models';
+        $folder = '../models/';
     }
-    if(!empty($class_name)) include $folder.'/'.$fileName;
+    if(!empty($class_name)) include $folder.$fileName;
 });
 
