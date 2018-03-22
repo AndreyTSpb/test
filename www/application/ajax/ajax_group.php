@@ -14,11 +14,12 @@ $id_group = (int)$_POST['id'];
 $id_stud = (int)$_POST['id_stud'];
 $id_user = (int)$_POST['id_user'];
 /*Получаем макс кол учеников*/
-$sql = "SELECT max_users, id_subject FROM groups WHERE id = '".$id_group."'";
+$sql = "SELECT max_users, id_subject, id_type FROM groups WHERE id = '".$id_group."'";
 $r = $link->query($sql);
 $m = $r->fetch_assoc();
 $max_users  = $m['max_users'];
 $id_subject = $m['id_subject'];
+$id_type = $m['id_type'];
 /*получаем текущию цену группы*/
 $sql1 = "SELECT * FROM group_prices WHERE id_group = '".$id_group."' ORDER BY dt DESC LIMIT 1";
 $r1 = $link->query($sql1);
@@ -45,6 +46,7 @@ if(isset($id_group)){
                 </div>
                 <form method = "post" action="../application/post/post_create_abon.php">
                     <input type="hidden" name = "id_subject"   value = "'.$id_subject.'">
+                    <input type="hidden" name = "id_type"      value = "'.$id_type.'">
                     <input type="hidden" name = "id_stud"      value = "'.$id_stud.'">
                     <input type="hidden" name = "id_user"      value = "'.$id_user.'">
                     <input type="hidden" name = "id_group"     value = "'.$id_group.'">

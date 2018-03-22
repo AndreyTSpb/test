@@ -29,6 +29,7 @@ class Model_Mybills extends Model{
         $id_group = '';
         $code='';
         $dt ='';
+        $wait_pay=array();
         if(!empty($masBill)){
             foreach ($masBill as $val){
                 $id_group = $val['id_group'];
@@ -182,9 +183,9 @@ class Model_Mybills extends Model{
                     $dt = date("d.m.Y H:i",$val['dt_ext']);
                 }
                 if($val['price'] == 0){
-                    $status = "Моя группа<br>Подтверждено!!!";
+                    $status = "Счет <br>Подтвержден!!!";
                 }else{
-                    $status = "Моя группа<br>Оплачено!!!";
+                    $status = "Счет <br>Оплачено!!!";
                 }
                 $dt = date("d.m.Y",$val['dt_pay']);
                 $true[] = array(

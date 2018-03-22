@@ -1,6 +1,6 @@
 <?php
 
-print_r($data);
+//print_r($data);
 if(!isset($error)) $error='';
 $mygroup = '';
 foreach ($mygroups as $id_stud => $vals){
@@ -56,14 +56,14 @@ foreach ($mygroups as $id_stud => $vals){
                      * Кнопка создания счета
                      */
                     $bay = '';
-                    if(empty($no_pay) && ($status == '1' OR $status == '5')){
+                    if(empty($no_pay) && ($status == '1' OR $status == '5' OR $status == '0')){
                         $bay = "<form method='post'>
                                        <label>Кол-во месяцев к оплате: <input type='text' name = 'for_bill' data-id='".$id_abon."' id='amount-".$id_abon."' value='1'></label>
                                        <label>К оплате: <input type='text' name='cost_bill' id='cost_".$id_abon."' value='".$first_pay_sum."' readonly></label>
                                        <input type='hidden' name = 'id_abon' value='".$id_abon."'>
                                        <input type='submit' name='create_bill' value='Купить'>
                                    </form>";
-                    }elseif (!empty($no_pay) && ($status == '1' OR $status == '5')) {
+                    }elseif (!empty($no_pay) && ($status == '1' OR $status == '5' OR $status == '0')) {
                        $bay = "<br><div class = 'bill_pay'><a href='/mybills'>Перейти на оплату!!!</a>";
                     }elseif($status == '6'){
                         $bay = "<div style='color: red;' class='bills_balance'>У вас не оплачен месяц !!! Теперь вы не можете пользоваться сервисами для ребенка!!! Обратитесь к администратору!!!</div>";
@@ -91,7 +91,7 @@ foreach ($mygroups as $id_stud => $vals){
                                     </div>
                                 </div>
                                 <div>
-                                    <div class='bill_link' id='class_booking_abon_".$id_abon."'> Удалить удостоверение</div>
+                                    <div class='bill_link clear_booking' data-id='".$id_abon."'> Отказаться от занятий в этой группе!!!</div>
                                 </div>
                             </div>";
              }
@@ -117,16 +117,31 @@ foreach ($mygroups as $id_stud => $vals){
     </div>
 </div>
 <script>
-    $( "input[name=for_bill]" ).keyup(function() {
-        var kol_month = $(this).val();
-        var id_abon = $(this).data('id');
-        var t = new Number(0);
-        var pay = new Number(0);
-        for($i=1; $i<=kol_month; $i++){
-            t = Number($("#p"+$i+"_"+id_abon).text());
-            pay = +pay + +t;
-        }
-        $("#cost_"+id_abon).val(pay);
-       });
+    $(document).ready(function() {
+        $( "input[name=for_bill]" ).keyup(function() {
+            var kol_month = $(this).val();
+            var id_abon = $(this).data('id');
+            var t = new Number(0);
+            var pay = new Number(0);
+            for($i=1; $i<=kol_month; $i++){
+                t = Number($("#p"+$i+"_"+id_abon).text());
+                pay = +pay + +t;
+            }
+            $("#cost_"+id_abon).val(pay);
+           });
+           
+        $('.clear_booking').click(function(){
+                var id_abon = $(this).data('id');
+                alert(id_abon);
+                $.ajax({
+                    type: 'POST', 
+                    url: '../application/ajax/cron_abon.php', 
+                    data: 'id='+id_abon,
+                    // data: 'id=".$id."',
+                    beforeSend: function(){ $('.cursor_wait').show(); }, 
+                    success: function(html){ $('.cursor_wait').hide(); location.pathname='/mygroups';}
+                });
+            });
+    });
 </script>
 

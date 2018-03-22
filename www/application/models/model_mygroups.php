@@ -23,7 +23,7 @@ class Model_MyGroups extends Model {
             //print_r($studs_in_groups);
                 foreach ($studs_in_groups as $id_stud => $name){
                     $q = array(
-                        "where" => "id_user = '".$this->id_user."' AND id_stud = '".$id_stud."' AND status IN('1','5','6') ",
+                        "where" => "id_user = '".$this->id_user."' AND id_stud = '".$id_stud."' AND status IN('0','1','5','6') ",
                         "order" => "id ASC"
                     );
                     $objAbon = new Model_Aboniments($q);

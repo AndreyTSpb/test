@@ -7,7 +7,7 @@
  */
 //print_r($data);
 if(!isset($error)) $error='';
-
+$wait_pay = ''; $true = ''; $false = ''; $balans = 0; $view_balans = '';
 if(!isset($mybill)) {
     $wait_pay = ''; $true = ''; $false = ''; $balans = 0; $view_balans = '';
 }else{

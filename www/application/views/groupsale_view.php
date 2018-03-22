@@ -14,6 +14,10 @@ $day = array(
     '6'=>'Сб',
     '7'=>'Вс'
 );
+if(empty($data['user'])) $user ='';
+if(empty($data['stud'])) $stud ='';
+if(empty($data['id_subject'])) $id_subject ='';
+if(empty($data['id_type'])) $id_type ='';
     $block_sale ='';
     if(!empty($data['content'])){
         foreach($data['content'] as $val){
@@ -45,6 +49,7 @@ $day = array(
     <div id="id_user"><?=$user;?></div>
     <div id="id_stud"><?=$stud;?></div>
     <div id="id_subject"><?=$id_subject;?></div>
+    <div id="id_type"><?=$id_type;?></div>
     <div class="for_block_price"></div>
     <?=$block_sale;?>
 </div>

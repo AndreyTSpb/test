@@ -1,5 +1,5 @@
 <?php
-    // отказ от занятий.
+    // отказ Оплаты счета.
     require_once '../core/config.php';
     global $link;
         $id_bill = (int)$_POST['id'];
